@@ -1904,8 +1904,9 @@ a.contact-item:hover {
 .whatsapp-float {
   position: fixed;
 
-  left: 28px;
-  bottom: 28px;
+  right: 24px;
+  bottom: 90px;
+  left: auto;
 
   width: 54px;
   height: 54px;
@@ -2091,6 +2092,14 @@ a.contact-item:hover {
   .profile-photo {
     width: 82px;
     height: 82px;
+  }
+
+  .whatsapp-float {
+    width: 48px;
+    height: 48px;
+    right: 18px;
+    bottom: 78px;
+    font-size: 1.3rem;
   }
 }
 
