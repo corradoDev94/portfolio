@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Osteria Bottega | Ristorante a Modena</title>
+<meta name="description" content="Osteria Bottega — cucina tradizionale modenese in chiave contemporanea. Menu, prenotazioni e contatti.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#241014">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lora:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="#home" class="skip-link">Salta al contenuto principale</a>
+
+<div class="demo-banner">
+  Sito dimostrativo realizzato da Cristofer Corrado &middot; nome attività, indirizzo e recensioni sono di esempio &middot;
+  <a href="../index.html#projects">Torna al portfolio</a>
+</div>
+
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="logo">Osteria <span>Bottega</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#storia" class="nav-link">La Storia</a></li>
+      <li><a href="#menu" class="nav-link">Menu</a></li>
+      <li><a href="#galleria" class="nav-link">Galleria</a></li>
+      <li><a href="#contatti" class="nav-cta">Prenota un tavolo</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="navLinks">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-badge">Cucina modenese dal 2019</span>
+      <h1>Sapori di casa, in una tavola curata.</h1>
+      <p>Ingredienti locali, ricette della tradizione emiliana e un servizio attento: da Osteria Bottega ogni piatto racconta una storia.</p>
+      <div class="hero-actions">
+        <a href="#contatti" class="btn btn-gold"><i class="fa-solid fa-calendar-check"></i> Prenota un tavolo</a>
+        <a href="https://wa.me/393510144331?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Prenota su WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <img src="https://images.pexels.com/photos/29219959/pexels-photo-29219959.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200&amp;dpr=1" alt="" loading="lazy">
+      <div class="badge-seal">
+        <strong>Est. 2019</strong>
+        <span>Osteria Bottega</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORIA -->
+<section id="storia" class="section">
+  <div class="container story-grid">
+    <div class="story-visual" aria-hidden="true"><i class="fa-solid fa-utensils"></i></div>
+    <div>
+      <span class="eyebrow">La nostra storia</span>
+      <h2 style="font-size:2.1rem; margin-bottom:20px;">Una cucina che parla di famiglia</h2>
+      <p>Osteria Bottega nasce dal desiderio di portare in tavola i piatti che hanno segnato la nostra infanzia: tortellini fatti a mano, ragù cotto per ore, pane sfornato ogni mattina.</p>
+      <p>Lavoriamo con produttori locali per garantire ingredienti freschi e di stagione, in un ambiente accogliente pensato per farvi sentire a casa.</p>
+      <a href="#menu" class="btn btn-outline">Scopri il menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Menu</span>
+      <h2>Il menu di stagione</h2>
+      <p>Una selezione dei nostri piatti. Il menu completo, con le proposte del giorno, è disponibile in sala.</p>
+    </div>
+
+    <div class="menu-tabs">
+      <span class="menu-tab active">Antipasti & Primi</span>
+      <span class="menu-tab">Secondi</span>
+      <span class="menu-tab">Dolci & Vini</span>
+    </div>
+
+    <div class="menu-columns">
+      <div class="menu-group">
+        <h3>Antipasti</h3>
+        <div class="menu-item">
+          <span class="menu-item-name">Tagliere di salumi e formaggi<small>Prodotti locali selezionati</small></span>
+          <span class="menu-item-dots"></span>
+          <span class="menu-item-price">€14</span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-item-name">Gnocco fritto e culatello<small>Ricetta tradizionale modenese</small></span>
+          <span class="menu-item-dots"></span>
+          <span class="menu-item-price">€12</span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-item-name">Insalata di stagione<small>Con verdure dell'orto</small></span>
+          <span class="menu-item-dots"></span>
+          <span class="menu-item-price">€9</span>
+        </div>
+      </div>
+      <div class="menu-group">
+        <h3>Primi</h3>
+        <div class="menu-item">
+          <span class="menu-item-name">Tortellini in brodo<small>Fatti a mano ogni giorno</small></span>
+          <span class="menu-item-dots"></span>
+          <span class="menu-item-price">€13</span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-item-name">Tagliatelle al ragù<small>Cottura lenta, 6 ore</small></span>
+          <span class="menu-item-dots"></span>
+          <span class="menu-item-price">€13</span>
+        </div>
+        <div class="menu-item">
+          <span class="menu-item-name">Risotto all'Aceto Balsamico<small>DOP di Modena</small></span>
+          <span class="menu-item-dots"></span>
+          <span class="menu-item-price">€14</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERIA -->
+<section id="galleria" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Galleria</span>
+      <h2>Un assaggio dell'ambiente</h2>
+      <p>In produzione: qui verranno inserite le foto reali della sala e dei piatti. Layout già pronto per riceverle.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="images/gallery-1.jpg" data-fallback="https://images.pexels.com/photos/29887388/pexels-photo-29887388.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Angolo sala accogliente" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-2.jpg" data-fallback="https://images.pexels.com/photos/33097104/pexels-photo-33097104.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Piatto di pasta al pesto" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-3.jpg" data-fallback="https://images.pexels.com/photos/17804210/pexels-photo-17804210.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Pasta con pomodorini e basilico" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-4.jpg" data-fallback="https://images.pexels.com/photos/38896844/pexels-photo-38896844.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Pasta con gamberi" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-5.jpg" data-fallback="https://images.pexels.com/photos/33097108/pexels-photo-33097108.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Pasta gourmet con fiori eduli" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-6.jpg" data-fallback="https://images.pexels.com/photos/9544251/pexels-photo-9544251.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Piatto di pasta con basilico" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-7.jpg" data-fallback="https://images.pexels.com/photos/17804216/pexels-photo-17804216.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Pasta con pomodorini" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-8.jpg" data-fallback="https://images.pexels.com/photos/24869086/pexels-photo-24869086.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Tavolo con vino e pasta" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-9.jpg" data-fallback="https://images.pexels.com/photos/16551434/pexels-photo-16551434.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Tavoli in terrazza esterna" loading="lazy"></div>
+    </div>
+    <p style="margin-top:18px; font-size:0.82rem; color:var(--ink-faint); font-family:'Inter',sans-serif;">Foto a scopo dimostrativo (non del locale reale) &middot; verranno sostituite con scatti dell'attività quando disponibili.</p>
+  </div>
+</section>
+
+<!-- RECENSIONI -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Recensioni (esempio)</span>
+      <h2>Cosa dicono i nostri clienti</h2>
+      <p>Recensioni di esempio, utili a mostrare come appariranno sul sito quando saranno reali.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"Tortellini in brodo da fare invidia alle nonne. Ambiente curato e personale gentilissimo."</p>
+        <span class="review-name">— Anna S.</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"Il posto giusto per una cena speciale senza rinunciare alla tradizione emiliana."</p>
+        <span class="review-name">— Marco V.</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"Prenotazione facile via WhatsApp, tavolo pronto e ottimo rapporto qualità prezzo."</p>
+        <span class="review-name">— Giulia P.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORARI + PRENOTAZIONE -->
+<section id="contatti" class="section">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <span class="eyebrow">Orari & Contatti</span>
+        <h2 style="font-size:1.9rem; margin-bottom:24px;">Quando trovarci</h2>
+        <table class="schedule-table">
+          <tr><th>Giorno</th><th>Orario</th></tr>
+          <tr><td>Martedì &ndash; Domenica</td><td>12:30 &ndash; 14:30 / 19:30 &ndash; 22:30</td></tr>
+          <tr><td>Lunedì</td><td>Chiuso</td></tr>
+        </table>
+        <div class="contact-list">
+          <a href="tel:+393510144331"><i class="fa-solid fa-phone"></i> <span>+39 351 014 4331</span></a>
+          <a href="https://wa.me/393510144331" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> <span>Prenota su WhatsApp</span></a>
+          <a href="mailto:info@osteriabottega-demo.it"><i class="fa-solid fa-envelope"></i> <span>info@osteriabottega-demo.it</span></a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Via+della+Bottega+7+Modena" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i> <span>Via della Bottega 7, 41121 Modena &middot; apri su Google Maps</span></a>
+        </div>
+      </div>
+      <form class="form-box" id="restaurantForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefono</label>
+            <input type="tel" id="phone" name="phone" placeholder="Il tuo numero" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date">Data</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+          <div class="form-group">
+            <label for="people">Persone</label>
+            <select id="people" name="people">
+              <option>1 persona</option>
+              <option selected>2 persone</option>
+              <option>3 persone</option>
+              <option>4 persone</option>
+              <option>5+ persone</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="notes">Note (facoltativo)</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Allergie, richieste particolari..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%; justify-content:center;">
+          Invia prenotazione <i class="fa-solid fa-paper-plane"></i>
+        </button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="logo">Osteria <span>Bottega</span></div>
+      <p style="color:var(--ink-faint); font-size:0.85rem; margin-top:6px;">Ristorante a Modena &middot; Sito dimostrativo</p>
+    </div>
+    <div class="footer-social">
+      <a href="https://wa.me/393510144331" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="tel:+393510144331" aria-label="Chiama"><i class="fa-solid fa-phone"></i></a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; 2026 Osteria Bottega &middot; Progetto demo di <a href="../index.html">Cristofer Corrado</a></span>
+    <span>Sito realizzato a scopo dimostrativo</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/393510144331?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo" target="_blank" rel="noopener" class="wa-float" aria-label="Scrivici su WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>

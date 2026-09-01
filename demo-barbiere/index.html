@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distretto Barber Co. | Barbiere a Modena</title>
+<meta name="description" content="Distretto Barber Co. — barbiere a Modena. Taglio, barba e rasatura tradizionale. Prenota il tuo appuntamento.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#10120f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="#home" class="skip-link">Salta al contenuto principale</a>
+<div class="pole-bar" aria-hidden="true"></div>
+
+<div class="demo-banner">
+  Sito dimostrativo realizzato da Cristofer Corrado &middot; nome attività, indirizzo e recensioni sono di esempio &middot;
+  <a href="../index.html#projects">Torna al portfolio</a>
+</div>
+
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="logo">DISTRETTO<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#servizi" class="nav-link">Servizi</a></li>
+      <li><a href="#team" class="nav-link">Il Team</a></li>
+      <li><a href="#galleria" class="nav-link">Galleria</a></li>
+      <li><a href="#contatti" class="nav-cta">Prenota</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="navLinks">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-badge">Barbershop tradizionale &middot; Modena</span>
+      <h1>Taglio <em>preciso</em>, stile senza tempo.</h1>
+      <p>Taglio uomo, barba e rasatura a mano libera in un ambiente curato nei dettagli. Prenota il tuo posto, niente attese in piedi.</p>
+      <div class="hero-actions">
+        <a href="#contatti" class="btn btn-brass"><i class="fa-solid fa-scissors"></i> Prenota il tuo taglio</a>
+        <a href="https://wa.me/393510144331?text=Ciao!%20Vorrei%20prenotare%20un%20appuntamento" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Prenota su WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <img src="images/hero.jpg" data-fallback="https://images.pexels.com/photos/3998414/pexels-photo-3998414.jpeg?auto=compress&cs=tinysrgb&w=1200&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="" loading="lazy">
+      <div class="pole"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIZI / LISTINO -->
+<section id="servizi" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Listino</span>
+      <h2>I nostri servizi</h2>
+      <p>Prezzi chiari, nessuna sorpresa. Ogni servizio include lavaggio e rifinitura.</p>
+    </div>
+    <div class="price-board">
+      <div class="price-group">
+        <h3>Taglio</h3>
+        <div class="price-row"><span class="price-name">Taglio classico<small>Forbici e macchinetta</small></span><span class="price-dots"></span><span class="price-value">€18</span></div>
+        <div class="price-row"><span class="price-name">Taglio + Barba<small>Il pacchetto più richiesto</small></span><span class="price-dots"></span><span class="price-value">€28</span></div>
+        <div class="price-row"><span class="price-name">Taglio bambino<small>Fino a 12 anni</small></span><span class="price-dots"></span><span class="price-value">€14</span></div>
+      </div>
+      <div class="price-group">
+        <h3>Barba</h3>
+        <div class="price-row"><span class="price-name">Rifinitura barba<small>Regolazione e contorno</small></span><span class="price-dots"></span><span class="price-value">€12</span></div>
+        <div class="price-row"><span class="price-name">Rasatura tradizionale<small>Panno caldo e rasoio a mano libera</small></span><span class="price-dots"></span><span class="price-value">€20</span></div>
+      </div>
+      <div class="price-group">
+        <h3>Trattamenti</h3>
+        <div class="price-row"><span class="price-name">Trattamento viso<small>Pulizia e idratazione</small></span><span class="price-dots"></span><span class="price-value">€15</span></div>
+        <div class="price-row"><span class="price-name">Colore / Schiaritura<small>Su valutazione</small></span><span class="price-dots"></span><span class="price-value">da €25</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Il team</span>
+      <h2>I nostri barbieri</h2>
+      <p>Professionisti con anni di esperienza, formati sulle tecniche classiche e sulle tendenze più recenti.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo"><i class="fa-solid fa-user"></i></div>
+        <div class="team-info"><h3>Andrea Neri</h3><span>Master Barber</span></div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><i class="fa-solid fa-user"></i></div>
+        <div class="team-info"><h3>Simone Ricci</h3><span>Barbiere &middot; Rasatura</span></div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><i class="fa-solid fa-user"></i></div>
+        <div class="team-info"><h3>Luca Fabbri</h3><span>Barbiere &middot; Colore</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERIA -->
+<section id="galleria" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Galleria</span>
+      <h2>Il locale</h2>
+      <p>In produzione: qui verranno inserite le foto reali del negozio. Layout già pronto per riceverle.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="images/gallery-1.jpg" data-fallback="https://images.pexels.com/photos/3998408/pexels-photo-3998408.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Rifinitura barba" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-2.jpg" data-fallback="https://images.pexels.com/photos/1805600/pexels-photo-1805600.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Taglio di precisione" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-3.jpg" data-fallback="https://images.pexels.com/photos/5853394/pexels-photo-5853394.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Rifinitura con forbici" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-4.jpg" data-fallback="https://images.pexels.com/photos/4625629/pexels-photo-4625629.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Sessione di taglio e barba" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-5.jpg" data-fallback="https://images.pexels.com/photos/7518732/pexels-photo-7518732.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Rasatura barba" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-6.jpg" data-fallback="https://images.pexels.com/photos/1570807/pexels-photo-1570807.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Styling capelli" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-7.jpg" data-fallback="https://images.pexels.com/photos/7697230/pexels-photo-7697230.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Interno del negozio" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-8.jpg" data-fallback="https://images.pexels.com/photos/7697285/pexels-photo-7697285.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Strumenti da barbiere in uso" loading="lazy"></div>
+    </div>
+    <p style="margin-top:18px; font-size:0.82rem; color:var(--ink-faint);">Foto a scopo dimostrativo (non del locale reale) &middot; verranno sostituite con scatti dell'attività quando disponibili.</p>
+  </div>
+</section>
+
+<!-- RECENSIONI -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Recensioni (esempio)</span>
+      <h2>Cosa dicono i clienti</h2>
+      <p>Recensioni di esempio, utili a mostrare come appariranno sul sito quando saranno reali.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"Prenotazione facile e puntualità totale, mai un'attesa. Taglio sempre preciso."</p>
+        <span class="review-name">— Alessandro M.</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"La rasatura tradizionale è un'esperienza a parte. Ambiente curato nei minimi dettagli."</p>
+        <span class="review-name">— Matteo G.</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"Il mio barbiere di fiducia da un anno. Prezzi onesti e risultato sempre impeccabile."</p>
+        <span class="review-name">— Riccardo F.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORARI + PRENOTAZIONE -->
+<section id="contatti" class="section">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <span class="eyebrow">Orari & Contatti</span>
+        <h2 style="font-size:1.9rem; margin-bottom:24px; text-transform:uppercase;">Quando trovarci</h2>
+        <table class="schedule-table">
+          <tr><th>Giorno</th><th>Orario</th></tr>
+          <tr><td>Martedì &ndash; Venerdì</td><td>09:00 &ndash; 19:30</td></tr>
+          <tr><td>Sabato</td><td>08:30 &ndash; 18:00</td></tr>
+          <tr><td>Lunedì &amp; Domenica</td><td>Chiuso</td></tr>
+        </table>
+        <div class="contact-list">
+          <a href="tel:+393510144331"><i class="fa-solid fa-phone"></i> <span>+39 351 014 4331</span></a>
+          <a href="https://wa.me/393510144331" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> <span>Prenota su WhatsApp</span></a>
+          <a href="mailto:info@distrettobarber-demo.it"><i class="fa-solid fa-envelope"></i> <span>info@distrettobarber-demo.it</span></a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Via+del+Distretto+4+Modena" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i> <span>Via del Distretto 4, 41123 Modena &middot; apri su Google Maps</span></a>
+        </div>
+      </div>
+      <form class="form-box" id="barberForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefono</label>
+            <input type="tel" id="phone" name="phone" placeholder="Il tuo numero" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="service">Servizio</label>
+            <select id="service" name="service">
+              <option>Taglio classico</option>
+              <option>Taglio + Barba</option>
+              <option>Rasatura tradizionale</option>
+              <option>Trattamento viso</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="date">Data preferita</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-brass" style="width:100%; justify-content:center;">
+          Invia richiesta <i class="fa-solid fa-paper-plane"></i>
+        </button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="logo">DISTRETTO<span>.</span></div>
+      <p style="color:var(--ink-faint); font-size:0.85rem; margin-top:6px;">Barbiere a Modena &middot; Sito dimostrativo</p>
+    </div>
+    <div class="footer-social">
+      <a href="https://wa.me/393510144331" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="tel:+393510144331" aria-label="Chiama"><i class="fa-solid fa-phone"></i></a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; 2026 Distretto Barber Co. &middot; Progetto demo di <a href="../index.html">Cristofer Corrado</a></span>
+    <span>Sito realizzato a scopo dimostrativo</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/393510144331?text=Ciao!%20Vorrei%20prenotare%20un%20appuntamento" target="_blank" rel="noopener" class="wa-float" aria-label="Scrivici su WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>

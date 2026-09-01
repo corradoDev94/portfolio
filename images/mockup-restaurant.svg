@@ -1,0 +1,41 @@
+<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rst-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0b1120"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="240" fill="url(#rst-bg)"/>
+
+  <!-- barra browser -->
+  <rect width="400" height="26" fill="#111c31"/>
+  <circle cx="16" cy="13" r="4" fill="#f87171"/>
+  <circle cx="30" cy="13" r="4" fill="#fbbf24"/>
+  <circle cx="44" cy="13" r="4" fill="#34d399"/>
+  <rect x="70" y="7" width="140" height="12" rx="6" fill="#1e293b"/>
+
+  <!-- hero foto -->
+  <rect x="20" y="40" width="360" height="66" rx="10" fill="#1e293b" stroke="#334155"/>
+  <rect x="36" y="56" width="130" height="10" rx="5" fill="#e2e8f0"/>
+  <rect x="36" y="74" width="90" height="18" rx="8" fill="#38bdf8"/>
+
+  <!-- menu -->
+  <g>
+    <circle cx="36" cy="126" r="6" fill="#818cf8"/>
+    <rect x="52" y="122" width="120" height="8" rx="4" fill="#e2e8f0"/>
+    <rect x="352" y="122" width="28" height="8" rx="4" fill="#38bdf8"/>
+
+    <circle cx="36" cy="150" r="6" fill="#818cf8"/>
+    <rect x="52" y="146" width="150" height="8" rx="4" fill="#e2e8f0"/>
+    <rect x="352" y="146" width="28" height="8" rx="4" fill="#38bdf8"/>
+
+    <circle cx="36" cy="174" r="6" fill="#818cf8"/>
+    <rect x="52" y="170" width="100" height="8" rx="4" fill="#e2e8f0"/>
+    <rect x="352" y="170" width="28" height="8" rx="4" fill="#38bdf8"/>
+
+    <circle cx="36" cy="198" r="6" fill="#818cf8"/>
+    <rect x="52" y="194" width="130" height="8" rx="4" fill="#e2e8f0"/>
+    <rect x="352" y="194" width="28" height="8" rx="4" fill="#38bdf8"/>
+  </g>
+</svg>

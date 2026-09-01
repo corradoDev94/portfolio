@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grazie per avermi contattato | Cristofer Corrado</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+    }
+    .thanks-icon {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-bottom: 26px;
+      box-shadow: var(--shadow-glow);
+    }
+    .error-page h1 {
+      font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+    }
+    .error-page p {
+      margin: 18px 0 32px;
+      color: var(--text-muted);
+      max-width: 480px;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-grid" aria-hidden="true"></div>
+  <div class="glow glow-1" aria-hidden="true"></div>
+  <div class="glow glow-2" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <main class="error-page">
+    <span class="thanks-icon"><i class="fa-solid fa-check"></i></span>
+    <h1>Grazie, messaggio ricevuto!</h1>
+    <p>Ho ricevuto la tua richiesta e ti risponderò il prima possibile, di solito entro 24-48 ore lavorative.</p>
+    <a href="index.html" class="btn btn-primary">
+      <i class="fa-solid fa-house"></i>
+      Torna alla home
+    </a>
+  </main>
+</body>
+</html>

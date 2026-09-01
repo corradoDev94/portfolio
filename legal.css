@@ -1,0 +1,84 @@
+/* ==========================================================================
+   LEGAL PAGES — Privacy & Cookie Policy
+   Foglio di stile aggiuntivo, pensato per estendere style.css su pagine
+   di testo semplici.
+   ========================================================================== */
+
+.legal-page {
+  padding: calc(var(--nav-height) + 60px) 0 100px;
+}
+
+.legal-container {
+  max-width: 760px;
+}
+
+.legal-container .eyebrow {
+  display: inline-block;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.legal-container h1 {
+  margin-top: 12px;
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
+}
+
+.legal-updated {
+  margin-top: 10px;
+  color: var(--text-faint);
+  font-size: 0.9rem;
+}
+
+.legal-notice {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin: 32px 0;
+  padding: 20px 22px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.legal-notice i {
+  color: var(--primary);
+  margin-top: 3px;
+}
+
+.legal-container h2 {
+  margin-top: 40px;
+  margin-bottom: 14px;
+  font-size: 1.3rem;
+}
+
+.legal-container p {
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.legal-list {
+  color: var(--text-muted);
+  margin: 0 0 16px 20px;
+  padding: 0;
+}
+
+.legal-list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.legal-container a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer {
+  padding-top: 0;
+  border-top: none;
+}

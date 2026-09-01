@@ -1,0 +1,41 @@
+<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ec-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0b1120"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="240" fill="url(#ec-bg)"/>
+
+  <!-- barra browser -->
+  <rect width="400" height="26" fill="#111c31"/>
+  <circle cx="16" cy="13" r="4" fill="#f87171"/>
+  <circle cx="30" cy="13" r="4" fill="#fbbf24"/>
+  <circle cx="44" cy="13" r="4" fill="#34d399"/>
+  <rect x="70" y="7" width="140" height="12" rx="6" fill="#1e293b"/>
+
+  <!-- nav + carrello -->
+  <rect x="20" y="40" width="60" height="8" rx="4" fill="#e2e8f0"/>
+  <rect x="330" y="34" width="20" height="20" rx="5" fill="none" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="340" cy="58" r="3" fill="#38bdf8"/>
+
+  <!-- griglia prodotti 2x2 -->
+  <g>
+    <rect x="20" y="66" width="168" height="70" rx="8" fill="#1e293b" stroke="#334155"/>
+    <rect x="32" y="120" width="60" height="6" rx="3" fill="#e2e8f0"/>
+    <rect x="32" y="130" width="30" height="6" rx="3" fill="#38bdf8"/>
+
+    <rect x="212" y="66" width="168" height="70" rx="8" fill="#1e293b" stroke="#334155"/>
+    <rect x="224" y="120" width="60" height="6" rx="3" fill="#e2e8f0"/>
+    <rect x="224" y="130" width="30" height="6" rx="3" fill="#38bdf8"/>
+
+    <rect x="20" y="146" width="168" height="70" rx="8" fill="#1e293b" stroke="#334155"/>
+    <rect x="32" y="200" width="60" height="6" rx="3" fill="#e2e8f0"/>
+    <rect x="32" y="210" width="30" height="6" rx="3" fill="#818cf8"/>
+
+    <rect x="212" y="146" width="168" height="70" rx="8" fill="#1e293b" stroke="#334155"/>
+    <rect x="224" y="200" width="60" height="6" rx="3" fill="#e2e8f0"/>
+    <rect x="224" y="210" width="30" height="6" rx="3" fill="#818cf8"/>
+  </g>
+</svg>

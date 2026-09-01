@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Officina Fitness | Palestra a Modena</title>
+<meta name="description" content="Officina Fitness — palestra a Modena con corsi funzionali, sala pesi e personal trainer. Prenota la tua prova gratuita.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#14120f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="#home" class="skip-link">Salta al contenuto principale</a>
+<div class="stripes" aria-hidden="true"></div>
+
+<div class="demo-banner">
+  Sito dimostrativo realizzato da Cristofer Corrado &middot; nome attività, indirizzo e recensioni sono di esempio &middot;
+  <a href="../index.html#projects">Torna al portfolio</a>
+</div>
+
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="logo">OFFICINA<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#corsi" class="nav-link">Corsi</a></li>
+      <li><a href="#abbonamenti" class="nav-link">Abbonamenti</a></li>
+      <li><a href="#trainer" class="nav-link">Trainer</a></li>
+      <li><a href="#galleria" class="nav-link">Galleria</a></li>
+      <li><a href="#contatti" class="nav-cta">Prova gratuita</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="navLinks">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-tag">Modena &middot; Zona Crocetta</span>
+      <h1>Allena la forza. <em>Costruisci</em> la tua officina.</h1>
+      <p>Sala pesi attrezzata, corsi funzionali e personal training in un ambiente essenziale, pensato per chi vuole risultati concreti, non fronzoli.</p>
+      <div class="hero-actions">
+        <a href="#contatti" class="btn btn-signal"><i class="fa-solid fa-dumbbell"></i> Prenota una prova gratuita</a>
+        <a href="https://wa.me/393510144331?text=Ciao!%20Vorrei%20informazioni%20su%20Officina%20Fitness" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Scrivici su WhatsApp</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>420+</strong><span>Iscritti attivi</span></div>
+        <div><strong>18</strong><span>Corsi a settimana</span></div>
+        <div><strong>06&ndash;23</strong><span>Orario continuato</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <img src="images/hero.jpg" data-fallback="https://images.pexels.com/photos/29639963/pexels-photo-29639963.jpeg?auto=compress&cs=tinysrgb&w=1200&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- CORSI -->
+<section id="corsi" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Corsi</span>
+      <h2>Un metodo per ogni obiettivo</h2>
+      <p>Dalla forza pura al condizionamento metabolico: scegli il percorso adatto a te, o combinali con l'accesso libero alla sala pesi.</p>
+    </div>
+    <div class="classes-grid">
+      <div class="class-card">
+        <span class="class-num">01 — FUNCTIONAL</span>
+        <h3>Functional Training</h3>
+        <p>Allenamento a corpo libero e con attrezzi, in piccoli gruppi guidati da un coach.</p>
+        <div class="class-meta"><span>Lun · Mer · Ven</span><span>50 min</span></div>
+      </div>
+      <div class="class-card">
+        <span class="class-num">02 — STRENGTH</span>
+        <h3>Sala Pesi Guidata</h3>
+        <p>Accesso libero alla sala attrezzi con supervisione tecnica per la corretta esecuzione.</p>
+        <div class="class-meta"><span>Tutti i giorni</span><span>Libero</span></div>
+      </div>
+      <div class="class-card">
+        <span class="class-num">03 — HIIT</span>
+        <h3>HIIT & Cardio</h3>
+        <p>Circuiti ad alta intensità per migliorare resistenza e condizionamento in poco tempo.</p>
+        <div class="class-meta"><span>Mar · Gio</span><span>40 min</span></div>
+      </div>
+      <div class="class-card">
+        <span class="class-num">04 — MOBILITY</span>
+        <h3>Mobility & Stretching</h3>
+        <p>Sessioni dedicate a mobilità articolare e recupero, ideali per chi si allena spesso.</p>
+        <div class="class-meta"><span>Sab</span><span>45 min</span></div>
+      </div>
+      <div class="class-card">
+        <span class="class-num">05 — PERSONAL</span>
+        <h3>Personal Training</h3>
+        <p>Programmi individuali su misura, con monitoraggio costante dei progressi.</p>
+        <div class="class-meta"><span>Su appuntamento</span><span>1:1</span></div>
+      </div>
+      <div class="class-card">
+        <span class="class-num">06 — BOXE</span>
+        <h3>Boxe Fitness</h3>
+        <p>Tecnica di base della boxe unita a un allenamento cardio completo e coinvolgente.</p>
+        <div class="class-meta"><span>Mer · Ven</span><span>50 min</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORARI + ABBONAMENTI -->
+<section id="abbonamenti" class="section section-alt">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <span class="eyebrow">Orari</span>
+        <h2 style="font-size:1.9rem; margin-bottom:26px;">Quando siamo aperti</h2>
+        <table class="schedule-table">
+          <tr><th>Giorno</th><th>Orario</th></tr>
+          <tr><td>Lunedì &ndash; Venerdì</td><td>06:00 &ndash; 23:00</td></tr>
+          <tr><td>Sabato</td><td>08:00 &ndash; 20:00</td></tr>
+          <tr><td>Domenica</td><td>09:00 &ndash; 13:00</td></tr>
+        </table>
+        <a class="map-placeholder" href="https://www.google.com/maps/search/?api=1&amp;query=Via+dell%27Officina+12+Modena" target="_blank" rel="noopener">
+          <span><i class="fa-solid fa-location-dot"></i>&nbsp; Apri su Google Maps &middot; Zona Crocetta, Modena</span>
+        </a>
+      </div>
+      <div>
+        <span class="eyebrow">Abbonamenti</span>
+        <h2 style="font-size:1.9rem; margin-bottom:26px;">Scegli il tuo piano</h2>
+        <div class="plans-grid">
+          <div class="plan-card">
+            <h3>Base</h3>
+            <div class="plan-price">€39<span>/mese</span></div>
+            <ul class="plan-list">
+              <li><i class="fa-solid fa-check"></i> Accesso sala pesi</li>
+              <li><i class="fa-solid fa-check"></i> Fascia oraria diurna</li>
+              <li><i class="fa-solid fa-check"></i> Scheda iniziale inclusa</li>
+            </ul>
+            <a href="#contatti" class="btn btn-outline">Scegli Base</a>
+          </div>
+          <div class="plan-card featured">
+            <span class="plan-badge">Più scelto</span>
+            <h3>Full Access</h3>
+            <div class="plan-price">€59<span>/mese</span></div>
+            <ul class="plan-list">
+              <li><i class="fa-solid fa-check"></i> Accesso illimitato H24</li>
+              <li><i class="fa-solid fa-check"></i> Tutti i corsi inclusi</li>
+              <li><i class="fa-solid fa-check"></i> 1 sessione PT al mese</li>
+            </ul>
+            <a href="#contatti" class="btn btn-signal">Scegli Full Access</a>
+          </div>
+          <div class="plan-card">
+            <h3>Personal</h3>
+            <div class="plan-price">€89<span>/mese</span></div>
+            <ul class="plan-list">
+              <li><i class="fa-solid fa-check"></i> Tutto incluso in Full Access</li>
+              <li><i class="fa-solid fa-check"></i> 4 sessioni PT al mese</li>
+              <li><i class="fa-solid fa-check"></i> Piano alimentare base</li>
+            </ul>
+            <a href="#contatti" class="btn btn-outline">Scegli Personal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINER -->
+<section id="trainer" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Il team</span>
+      <h2>I nostri trainer</h2>
+      <p>Coach certificati che seguono ogni allievo con attenzione, dalla prima prova ai risultati a lungo termine.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo"><i class="fa-solid fa-user"></i></div>
+        <h3>Marco Ferrari</h3>
+        <span>Head Coach &middot; Strength</span>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><i class="fa-solid fa-user"></i></div>
+        <h3>Giulia Rinaldi</h3>
+        <span>Functional & HIIT</span>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><i class="fa-solid fa-user"></i></div>
+        <h3>Davide Conti</h3>
+        <span>Personal Trainer</span>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><i class="fa-solid fa-user"></i></div>
+        <h3>Sara Moretti</h3>
+        <span>Mobility & Recupero</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERIA -->
+<section id="galleria" class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Galleria</span>
+      <h2>Dentro l'officina</h2>
+      <p>In produzione: qui verranno inserite le foto reali della sala. Layout già pronto per riceverle.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="images/gallery-1.jpg" data-fallback="https://images.pexels.com/photos/29392546/pexels-photo-29392546.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Sala pesi con luci soffuse" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-2.jpg" data-fallback="https://images.pexels.com/photos/29526372/pexels-photo-29526372.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Area allenamento con macchine" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-3.jpg" data-fallback="https://images.pexels.com/photos/29392549/pexels-photo-29392549.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Rastrelliera di manubri" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-4.jpg" data-fallback="https://images.pexels.com/photos/7031705/pexels-photo-7031705.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Sala fitness con grandi finestre" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-5.jpg" data-fallback="https://images.pexels.com/photos/13863730/pexels-photo-13863730.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Dettaglio pesi" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/gallery-6.jpg" data-fallback="https://images.pexels.com/photos/29850902/pexels-photo-29850902.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Allenamento con pesi" loading="lazy"></div>
+    </div>
+    <p style="margin-top:18px; font-size:0.82rem; color:var(--ink-faint);">Foto a scopo dimostrativo (non della sede reale) &middot; verranno sostituite con scatti dell'attività quando disponibili.</p>
+  </div>
+</section>
+
+<!-- RECENSIONI -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Recensioni (esempio)</span>
+      <h2>Cosa dicono i nostri iscritti</h2>
+      <p>Recensioni di esempio, utili a mostrare come appariranno sul sito quando saranno reali.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"Ambiente serio, coach preparati e mai affollato nelle fasce che uso io. Consigliata."</p>
+        <span class="review-name">— Federico R.</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"In tre mesi di Full Access ho visto risultati concreti, grazie al programma personalizzato."</p>
+        <span class="review-name">— Chiara B.</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>"Orario continuato comodissimo per chi lavora fino a tardi. Struttura pulita e curata."</p>
+        <span class="review-name">— Luca T.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section id="contatti" class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Contatti</span>
+      <h2>Prenota la tua prova gratuita</h2>
+      <p>Compila il modulo o scrivici direttamente su WhatsApp: ti rispondiamo entro la giornata.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-list">
+          <a href="tel:+393510144331"><i class="fa-solid fa-phone"></i> <span>+39 351 014 4331</span></a>
+          <a href="https://wa.me/393510144331" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> <span>WhatsApp diretto</span></a>
+          <a href="mailto:info@officinafitness-demo.it"><i class="fa-solid fa-envelope"></i> <span>info@officinafitness-demo.it</span></a>
+          <div><i class="fa-solid fa-location-dot"></i> <span>Via dell'Officina 12, 41122 Modena</span></div>
+        </div>
+      </div>
+      <form class="form-box" id="gymForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefono</label>
+            <input type="tel" id="phone" name="phone" placeholder="Il tuo numero" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="interest">Sono interessato a</label>
+          <select id="interest" name="interest">
+            <option>Prova gratuita</option>
+            <option>Abbonamento Base</option>
+            <option>Abbonamento Full Access</option>
+            <option>Personal Training</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Messaggio (facoltativo)</label>
+          <textarea id="message" name="message" rows="4" placeholder="Scrivi qui eventuali richieste..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-signal" style="width:100%; justify-content:center;">
+          Invia richiesta <i class="fa-solid fa-paper-plane"></i>
+        </button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="logo">OFFICINA<span>.</span></div>
+      <p style="color:var(--ink-faint); font-size:0.85rem; margin-top:6px;">Palestra a Modena &middot; Sito dimostrativo</p>
+    </div>
+    <div class="footer-social">
+      <a href="https://wa.me/393510144331" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="tel:+393510144331" aria-label="Chiama"><i class="fa-solid fa-phone"></i></a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; 2026 Officina Fitness &middot; Progetto demo di <a href="../index.html">Cristofer Corrado</a></span>
+    <span>Sito realizzato a scopo dimostrativo</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/393510144331?text=Ciao!%20Vorrei%20informazioni" target="_blank" rel="noopener" class="wa-float" aria-label="Scrivici su WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>

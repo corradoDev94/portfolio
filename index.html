@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cristofer Corrado | Web Developer</title>
+
+  <meta name="description" content="Cristofer Corrado, sviluppatore web freelance a Modena. Realizzo siti web moderni, veloci e responsive per aziende e professionisti.">
+  <meta name="keywords" content="sviluppatore web freelance, web developer Modena, siti web aziendali, landing page, portfolio HTML CSS JavaScript PHP">
+  <meta name="author" content="Cristofer Corrado">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#070b14">
+  <link rel="canonical" href="https://corradodev94.github.io/portfolio/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cristofer Corrado | Web Developer Freelance">
+  <meta property="og:description" content="Realizzo siti web moderni, veloci e responsive per aziende e professionisti. Scopri i miei progetti e contattami per il tuo prossimo sito.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://corradodev94.github.io/portfolio/">
+  <meta property="og:image" content="https://corradodev94.github.io/portfolio/images/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="Cristofer Corrado | Web Developer">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cristofer Corrado | Web Developer Freelance">
+  <meta name="twitter:description" content="Realizzo siti web moderni, veloci e responsive per aziende e professionisti.">
+  <meta name="twitter:image" content="https://corradodev94.github.io/portfolio/images/og-cover.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Schema.org: Person / ProfessionalService -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Cristofer Corrado",
+    "jobTitle": "Web Developer Freelance",
+    "url": "https://corradodev94.github.io/portfolio/",
+    "image": "https://corradodev94.github.io/portfolio/images/avatar.png",
+    "email": "mailto:cristofer.corrado@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Modena",
+      "addressCountry": "IT"
+    },
+    "sameAs": [
+      "https://github.com/corradodev94"
+    ],
+    "knowsAbout": ["HTML5", "CSS3", "JavaScript", "PHP", "Git", "SEO Base", "Responsive Design"]
+  }
+  </script>
+</head>
+<body>
+
+  <a href="#home" class="skip-link">Salta al contenuto principale</a>
+
+  <!-- Effetti di sfondo -->
+  <div class="background-grid" aria-hidden="true"></div>
+  <div class="glow glow-1" aria-hidden="true"></div>
+  <div class="glow glow-2" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <nav class="nav-container">
+      <a href="#home" class="logo">CC<span>.</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">Chi sono</a></li>
+        <li><a href="#skills" class="nav-link">Competenze</a></li>
+        <li><a href="#projects" class="nav-link">Progetti</a></li>
+        <li><a href="#contact" class="nav-link">Contatti</a></li>
+      </ul>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="navLinks">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container hero-container">
+      <div class="hero-left">
+        <span class="hero-badge">
+          <i class="fa-solid fa-circle"></i>
+          Disponibile per nuovi progetti freelance
+        </span>
+
+        <h1 class="hero-title">
+          Hai un'attività? Ti creo un <span>sito web moderno</span> per
+          presentarti online e ricevere nuovi contatti.
+        </h1>
+
+        <p class="hero-text">
+          Progetto e sviluppo siti web professionali, veloci e responsive con
+          particolare attenzione al design, alle prestazioni e
+          all'esperienza utente.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            Guarda i progetti
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="https://wa.me/393510144331?text=Ciao%20Cristofer!%20Vorrei%20un%20preventivo%20per%20un%20sito%20web" target="_blank" rel="noopener" class="btn btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> Scrivimi su WhatsApp
+          </a>
+        </div>
+
+        <div class="hero-social">
+          <a href="https://wa.me/393510144331" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://github.com/corradodev94" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://instagram.com/cri_caly" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="profile-card">
+          <img src="images/avatar.png" alt="Foto di Cristofer Corrado" class="profile-photo">
+
+          <h3>Cristofer Corrado</h3>
+          <p class="profile-role">Web Developer Freelance</p>
+
+          <div class="profile-info">
+            <a class="info-item" href="mailto:cristofer.corrado@gmail.com">
+              <i class="fa-solid fa-envelope"></i>
+              <div>
+                <strong>Email</strong>
+                <span>cristofer.corrado@gmail.com</span>
+              </div>
+            </a>
+
+            <a class="info-item" href="https://wa.me/393510144331" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i>
+              <div>
+                <strong>WhatsApp</strong>
+                <span>Scrivimi direttamente</span>
+              </div>
+            </a>
+
+            <a class="info-item" href="https://github.com/corradodev94" target="_blank" rel="noopener">
+              <i class="fa-brands fa-github"></i>
+              <div>
+                <strong>GitHub</strong>
+                <span>github.com/corradodev94</span>
+              </div>
+            </a>
+
+            <div class="info-item">
+              <i class="fa-solid fa-briefcase"></i>
+              <div>
+                <strong>Disponibilità</strong>
+                <span>Freelance, nuovi progetti</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="fa-solid fa-clock"></i>
+              <div>
+                <strong>Tempo medio consegna</strong>
+                <span>1 - 3 settimane</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHI SONO -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Chi sono</span>
+        <h2>La persona dietro il codice</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Mi chiamo <strong>Cristofer Corrado</strong> e realizzo siti web
+            per attività e professionisti che vogliono presentarsi online in
+            modo chiaro e ricevere contatti da nuovi clienti, senza
+            complicazioni tecniche da gestire.
+          </p>
+          <p>
+            Mi occupo di tutto il processo: dal primo contatto alla
+            pubblicazione online, con un sito moderno, veloce e ottimizzato
+            per essere consultato da smartphone, dove la maggior parte delle
+            persone cerca un'attività.
+          </p>
+
+          <ul class="about-tags" aria-label="Percorso e competenze">
+            <li><i class="fa-solid fa-graduation-cap"></i> Diploma ITIS Corni</li>
+            <li><i class="fa-solid fa-briefcase"></i> Stage Doxee</li>
+            <li><i class="fa-brands fa-html5"></i> HTML</li>
+            <li><i class="fa-brands fa-css3-alt"></i> CSS</li>
+            <li><i class="fa-brands fa-js"></i> JavaScript</li>
+            <li><i class="fa-brands fa-php"></i> PHP</li>
+            <li><i class="fa-brands fa-git-alt"></i> Git</li>
+            <li><i class="fa-solid fa-mobile-screen"></i> Responsive</li>
+            <li><i class="fa-solid fa-magnifying-glass-chart"></i> SEO Base</li>
+          </ul>
+
+          <a href="#projects" class="btn btn-primary">Guarda i miei lavori</a>
+        </div>
+
+        <div class="info-card">
+          <h3>Informazioni</h3>
+          <ul class="info-list">
+            <li><i class="fa-solid fa-graduation-cap"></i> Diploma Informatica (2026)</li>
+            <li><i class="fa-solid fa-laptop-code"></i> HTML • CSS • JavaScript • PHP</li>
+            <li><i class="fa-solid fa-location-dot"></i> Modena, Italia</li>
+            <li><i class="fa-solid fa-rocket"></i> Disponibile per progetti freelance</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3 data-count="3" data-suffix="+">0</h3>
+          <p>Progetti realizzati</p>
+        </div>
+        <div class="stat-card">
+          <h3 data-count="100" data-suffix="%">0</h3>
+          <p>Responsive</p>
+        </div>
+        <div class="stat-card">
+          <h3 data-count="4" data-suffix="+">0</h3>
+          <p>Tecnologie <span class="stat-sub">HTML · CSS · JS · PHP</span></p>
+        </div>
+        <div class="stat-card">
+          <h3 class="stat-text">Freelance</h3>
+          <p>Disponibile</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERCORSO -->
+  <section id="timeline" class="section section-alt">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Percorso</span>
+        <h2>Il mio percorso</h2>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <span class="timeline-year">2025</span>
+            <h3>Stage Doxee</h3>
+            <p>Stage formativo in azienda, prime esperienze concrete nello sviluppo software e nel lavoro in team.</p>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <span class="timeline-year">2026</span>
+            <h3>Diploma</h3>
+            <p>Diploma presso l'Istituto Tecnico Corni di Modena (sede Leonardo da Vinci), indirizzo Informatica.</p>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <span class="timeline-year">2026</span>
+            <h3>Portfolio</h3>
+            <p>Realizzazione del mio portfolio professionale con HTML, CSS e JavaScript.</p>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <span class="timeline-year">2026</span>
+            <h3>Primi clienti</h3>
+            <p>Realizzazione dei primi progetti reali per clienti e piccole attività.</p>
+          </div>
+        </li>
+
+        <li class="timeline-item">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <span class="timeline-year">2026</span>
+            <h3>Freelance</h3>
+            <p>Avvio dei primi progetti web per attività e professionisti.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Servizi</span>
+        <h2>Come posso aiutarti</h2>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <i class="fa-solid fa-building"></i>
+          <h3>Siti per attività locali</h3>
+          <p>Il sito per la tua palestra, ristorante, negozio o studio: presenti i tuoi servizi e i clienti ti trovano e ti contattano facilmente.</p>
+        </article>
+
+        <article class="service-card">
+          <i class="fa-solid fa-window-maximize"></i>
+          <h3>Landing Page</h3>
+          <p>Una pagina semplice e diretta per presentare un servizio o una promozione, con un modo chiaro per contattarti.</p>
+        </article>
+
+        <article class="service-card">
+          <i class="fa-solid fa-user-tie"></i>
+          <h3>Portfolio</h3>
+          <p>Portfolio personali per professionisti e freelance che vogliono presentare i propri lavori online.</p>
+        </article>
+
+        <article class="service-card">
+          <i class="fa-solid fa-pen-ruler"></i>
+          <h3>Restyling</h3>
+          <p>Aggiorno siti esistenti con un design più moderno e una migliore esperienza per chi li visita.</p>
+        </article>
+
+        <article class="service-card">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+          <h3>Manutenzione</h3>
+          <p>Aggiornamenti, correzioni e piccole modifiche continue per mantenere il sito sempre efficiente.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETENZE -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Skills</span>
+        <h2>Competenze</h2>
+        <p>Utilizzo tecnologie moderne per sviluppare siti web performanti, responsive e facili da mantenere.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
+          <h3>HTML5</h3>
+          <p>Struttura semantica, SEO e accessibilità.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div>
+          <h3>CSS3</h3>
+          <p>Layout moderni, Flexbox, Grid, animazioni e responsive.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-brands fa-js"></i></div>
+          <h3>JavaScript</h3>
+          <p>Interattività, DOM, effetti dinamici e logica client.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-brands fa-php"></i></div>
+          <h3>PHP</h3>
+          <p>Sviluppo back-end e applicazioni web dinamiche.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-brands fa-git-alt"></i></div>
+          <h3>Git</h3>
+          <p>Gestione delle versioni e collaborazione sui progetti.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-brands fa-github"></i></div>
+          <h3>GitHub</h3>
+          <p>Repository, GitHub Pages e pubblicazione dei progetti.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+          <h3>Responsive Design</h3>
+          <p>Layout adattivi per desktop, tablet e smartphone.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          <h3>SEO Base</h3>
+          <p>Struttura ottimizzata per i motori di ricerca.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-swatchbook"></i></div>
+          <h3>UI Design</h3>
+          <p>Interfacce pulite, coerenti e centrate sull'utente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGETTI -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Progetti</span>
+        <h2>I miei progetti</h2>
+        <p>Alcuni dei progetti che ho realizzato e che continuo a migliorare per ampliare il mio portfolio.</p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-image">
+            <img src="images/projects/portfolio-personale.jpg" data-fallback="https://images.pexels.com/photos/34803985/pexels-photo-34803985.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800&amp;h=450&amp;dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Anteprima del portfolio personale" loading="lazy" width="640" height="360">
+          </div>
+          <div class="project-content">
+            <span class="project-category">Portfolio</span>
+            <h3>Portfolio Personale</h3>
+            <p>Il sito che stai guardando ora: vetrina online per presentare competenze e progetti in modo moderno.</p>
+            <div class="project-tech">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+            <div class="project-buttons">
+              <span class="btn btn-disabled">Sei già qui 👋</span>
+              <a href="https://github.com/corradodev94" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">
+            <img src="images/projects/palestra.jpg" data-fallback="https://images.pexels.com/photos/29224211/pexels-photo-29224211.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Anteprima del sito palestra" loading="lazy" width="640" height="360">
+          </div>
+          <div class="project-content">
+            <span class="project-category">Sito per attività locale</span>
+            <h3>Officina Fitness — Palestra</h3>
+            <p>Sito demo completo per una palestra: corsi, abbonamenti, orari, prenotazione e contatto WhatsApp diretto.</p>
+            <div class="project-tech">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Responsive</span>
+            </div>
+            <div class="project-buttons">
+              <a href="demo-palestra/index.html" target="_blank" rel="noopener" class="btn btn-primary">Visita il sito <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">
+            <img src="images/projects/barbiere.jpg" data-fallback="https://images.pexels.com/photos/3998397/pexels-photo-3998397.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Anteprima del sito barbiere" loading="lazy" width="640" height="360">
+          </div>
+          <div class="project-content">
+            <span class="project-category">Sito per attività locale</span>
+            <h3>Distretto Barber Co. — Barbiere</h3>
+            <p>Sito demo completo per un barbiere: listino servizi, team, galleria e prenotazione via WhatsApp.</p>
+            <div class="project-tech">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Responsive</span>
+            </div>
+            <div class="project-buttons">
+              <a href="demo-barbiere/index.html" target="_blank" rel="noopener" class="btn btn-primary">Visita il sito <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">
+            <img src="images/projects/ristorante.jpg" data-fallback="https://images.pexels.com/photos/34686219/pexels-photo-34686219.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&dpr=1" onerror="this.onerror=null;this.src=this.dataset.fallback;" alt="Anteprima del sito ristorante" loading="lazy" width="640" height="360">
+          </div>
+          <div class="project-content">
+            <span class="project-category">Sito per attività locale</span>
+            <h3>Osteria Bottega — Ristorante</h3>
+            <p>Sito demo completo per un ristorante: menu digitale, galleria, orari e modulo di prenotazione tavolo.</p>
+            <div class="project-tech">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Responsive</span>
+            </div>
+            <div class="project-buttons">
+              <a href="demo-ristorante/index.html" target="_blank" rel="noopener" class="btn btn-primary">Visita il sito <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section section-alt">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">FAQ</span>
+        <h2>Domande frequenti</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Quanto costa un sito web?</summary>
+          <p>Dipende dal tipo di progetto (landing page, sito aziendale, e-commerce) e dalle funzionalità richieste. Contattami per un preventivo gratuito e senza impegno.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Quanto tempo serve per realizzare un sito?</summary>
+          <p>In media dalle 1 alle 4 settimane, in base alla complessità del progetto e alla disponibilità dei contenuti (testi, immagini, loghi).</p>
+        </details>
+        <details class="faq-item">
+          <summary>Mi occupi anche della manutenzione dopo la consegna?</summary>
+          <p>Sì, offro pacchetti di manutenzione per aggiornamenti, piccole modifiche e assistenza continua dopo la pubblicazione del sito.</p>
+        </details>
+        <details class="faq-item">
+          <summary>I siti sono ottimizzati per smartphone e tablet?</summary>
+          <p>Sì, ogni sito che realizzo è responsive: viene testato e ottimizzato per funzionare bene su desktop, tablet e smartphone.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Contatti</span>
+        <h2>Parliamo del tuo progetto</h2>
+        <p>Hai bisogno di un sito web moderno, veloce e responsive? Contattami e sarò felice di parlarne con te.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Contatti</h3>
+
+          <a href="mailto:cristofer.corrado@gmail.com" class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            cristofer.corrado@gmail.com
+          </a>
+
+          <a href="https://wa.me/393510144331" target="_blank" rel="noopener" class="contact-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            WhatsApp diretto
+          </a>
+
+          <a href="https://github.com/corradodev94" target="_blank" rel="noopener" class="contact-item">
+            <i class="fa-brands fa-github"></i>
+            github.com/corradodev94
+          </a>
+
+          <a href="https://instagram.com/cri_caly" target="_blank" rel="noopener" class="contact-item">
+            <i class="fa-brands fa-instagram"></i>
+            @cri_caly
+          </a>
+
+          <span class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            Modena, Italia
+          </span>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nome</label>
+              <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="latua@email.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Oggetto</label>
+            <input type="text" id="subject" name="subject" placeholder="Di cosa vuoi parlare?" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Messaggio</label>
+            <textarea id="message" name="message" rows="6" placeholder="Scrivi il tuo messaggio..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary submit-btn">
+            Invia messaggio
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <h3>Cristofer Corrado</h3>
+        <p>Web Developer Freelance</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Link di navigazione">
+        <a href="#home">Home</a>
+        <a href="#about">Chi sono</a>
+        <a href="#skills">Competenze</a>
+        <a href="#projects">Progetti</a>
+        <a href="#contact">Contatti</a>
+      </nav>
+
+      <div class="footer-social">
+        <a href="mailto:cristofer.corrado@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="https://wa.me/393510144331" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="https://github.com/corradodev94" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://instagram.com/cri_caly" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-content">
+        <span>&copy; 2026 Cristofer Corrado &middot; Tutti i diritti riservati.</span>
+        <nav class="footer-legal" aria-label="Link legali">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="cookie.html">Cookie Policy</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#home" class="back-to-top" id="backToTop" aria-label="Torna in cima">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a>
+
+  <a href="https://wa.me/393510144331?text=Ciao%20Cristofer!%20Vorrei%20un%20preventivo%20per%20un%20sito%20web" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Scrivimi su WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>

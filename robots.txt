@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://corradodev94.github.io/portfolio/sitemap.xml
