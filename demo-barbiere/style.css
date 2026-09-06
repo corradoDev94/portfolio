@@ -179,13 +179,3 @@ h1,h2,h3{ font-family:'Bebas Neue', 'Oswald', sans-serif; letter-spacing:0.02em;
   .form-row{ grid-template-columns:1fr; }
   .footer-inner{ flex-direction:column; align-items:flex-start; }
 }
-
-/* FINAL MOBILE POLISH */
-html, body { max-width: 100%; overflow-x: hidden; }
-img { max-width: 100%; }
-button, a { -webkit-tap-highlight-color: transparent; }
-@media (max-width: 720px) {
-  .container { width: min(100% - 32px, 1200px); }
-  input, select, textarea, button { font-size: 16px; }
-  .wa-float { right: 16px; bottom: 18px; width: 52px; height: 52px; }
-}
