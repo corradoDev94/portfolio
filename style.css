@@ -18,6 +18,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
+  overflow-x: hidden;
 }
 
 :root {
@@ -58,8 +59,6 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
-  overflow-x: hidden;
-  position: relative;
 }
 
 img {
@@ -1975,61 +1974,19 @@ a.contact-item:hover {
 
 @media (max-width: 700px) {
   .hero-container {
-    grid-template-columns: minmax(0, 1fr) minmax(145px, 0.55fr);
-    gap: 18px;
-    align-items: start;
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
-  .hero-left,
+  /*
+     Su telefono la card dei contatti viene nascosta: a questa
+     larghezza non ci sta in modo leggibile accanto al testo (o
+     sopra/sotto senza sembrare rotta). Le stesse informazioni
+     (email, WhatsApp, GitHub...) restano raggiungibili tramite i
+     bottoni/icone dell'hero e nella sezione Contatti più in basso.
+  */
   .hero-right {
-    min-width: 0;
-  }
-
-  .hero-right {
-    max-width: none;
-    width: 100%;
-    justify-self: stretch;
-  }
-
-  .profile-card {
-    padding: 22px 16px;
-  }
-
-  .profile-photo {
-    width: 68px;
-    height: 68px;
-  }
-
-  .profile-card h3 {
-    font-size: 1rem;
-    overflow-wrap: anywhere;
-  }
-
-  .profile-role {
-    font-size: 0.72rem;
-    line-height: 1.4;
-  }
-
-  .profile-info {
-    gap: 8px;
-  }
-
-  .info-item {
-    gap: 8px;
-    padding: 8px 0;
-  }
-
-  .info-item i {
-    width: 16px;
-    font-size: 0.8rem;
-    flex-shrink: 0;
-  }
-
-  .info-item strong,
-  .info-item span {
-    font-size: 0.68rem;
-    line-height: 1.35;
-    overflow-wrap: anywhere;
+    display: none;
   }
 }
 
@@ -2048,6 +2005,7 @@ a.contact-item:hover {
 
   .navbar.menu-open .nav-container {
     border-radius: var(--radius-lg);
+    background: rgba(5, 7, 13, 0.98);
   }
 
   .navbar.menu-open .nav-links {
