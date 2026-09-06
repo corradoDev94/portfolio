@@ -1973,20 +1973,107 @@ a.contact-item:hover {
 }
 
 @media (max-width: 700px) {
+  /* HERO MOBILE: testo + card sempre affiancati */
   .hero-container {
-    grid-template-columns: 1fr;
-    gap: 0;
+    grid-template-columns: minmax(0, 1fr) minmax(138px, 0.62fr);
+    gap: 14px;
+    align-items: start;
   }
 
-  /*
-     Su telefono la card dei contatti viene nascosta: a questa
-     larghezza non ci sta in modo leggibile accanto al testo (o
-     sopra/sotto senza sembrare rotta). Le stesse informazioni
-     (email, WhatsApp, GitHub...) restano raggiungibili tramite i
-     bottoni/icone dell'hero e nella sezione Contatti più in basso.
-  */
+  .hero-left,
   .hero-right {
-    display: none;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .hero-right {
+    max-width: none;
+    justify-self: stretch;
+  }
+
+  .hero-badge {
+    padding: 7px 10px;
+    gap: 6px;
+    font-size: 0.68rem;
+    white-space: nowrap;
+  }
+
+  .hero-title {
+    font-size: clamp(1.55rem, 6vw, 2rem);
+    line-height: 1.18;
+  }
+
+  .hero-text {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .hero-buttons {
+    gap: 9px;
+    width: 100%;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+    font-size: 0.78rem;
+  }
+
+  .hero-social {
+    gap: 8px;
+  }
+
+  .hero-social a {
+    width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
+  }
+
+  .profile-card {
+    padding: 18px 12px;
+    border-radius: var(--radius-lg);
+  }
+
+  .profile-photo {
+    width: 62px;
+    height: 62px;
+    margin-bottom: 10px;
+  }
+
+  .profile-card h3 {
+    font-size: 0.92rem;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-role {
+    font-size: 0.64rem;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .profile-info {
+    gap: 5px;
+  }
+
+  .info-item {
+    gap: 6px;
+    padding: 7px 6px;
+    border-radius: 8px;
+  }
+
+  .info-item i {
+    width: 14px;
+    font-size: 0.68rem;
+  }
+
+  .info-item strong,
+  .info-item span {
+    font-size: 0.56rem;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 }
 
@@ -2090,13 +2177,14 @@ a.contact-item:hover {
     justify-content: flex-start;
   }
 
+  /* Dimensioni compatte della card: deve restare affiancata al testo. */
   .profile-card {
-    padding: 30px 24px;
+    padding: 18px 12px;
   }
 
   .profile-photo {
-    width: 82px;
-    height: 82px;
+    width: 62px;
+    height: 62px;
   }
 
   .whatsapp-float {
@@ -2110,7 +2198,43 @@ a.contact-item:hover {
 
 @media (max-width: 380px) {
   .hero-title {
-    font-size: 2.1rem;
+    font-size: 1.55rem;
+  }
+
+  .hero-container {
+    grid-template-columns: minmax(0, 1fr) minmax(124px, 0.62fr);
+    gap: 10px;
+  }
+
+  .hero-text {
+    font-size: 0.76rem;
+  }
+
+  .profile-card {
+    padding: 14px 9px;
+  }
+
+  .profile-photo {
+    width: 54px;
+    height: 54px;
+  }
+
+  .profile-card h3 {
+    font-size: 0.78rem;
+  }
+
+  .profile-role {
+    font-size: 0.55rem;
+  }
+
+  .info-item {
+    padding: 6px 4px;
+    gap: 4px;
+  }
+
+  .info-item strong,
+  .info-item span {
+    font-size: 0.5rem;
   }
 
   .section {
