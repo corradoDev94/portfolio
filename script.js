@@ -45,12 +45,25 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ------------------------------------------------------------------
      2. SCROLL-SPY — evidenzia il link attivo nella navbar
   ------------------------------------------------------------------ */
-  const sections = document.querySelectorAll('section[id]');
   const navItems = document.querySelectorAll('.nav-link');
+
+  // Solo le sezioni che hanno un link corrispondente nel menu vengono
+  // usate per calcolare la voce attiva. Le sezioni "intermedie" (es.
+  // Percorso, Servizi, FAQ) non hanno una voce di menu dedicata: senza
+  // questo filtro, scorrendole si disattivava l'evidenziazione di TUTTI
+  // i link finché non si raggiungeva la sezione successiva presente nel
+  // menu, dando l'impressione che l'evidenziazione fosse "rotta".
+  const navHrefs = new Set(Array.from(navItems).map(link => link.getAttribute('href')));
+  const sections = Array.from(document.querySelectorAll('section[id]'))
+    .filter(section => navHrefs.has(`#${section.id}`));
 
   const setActiveLink = () => {
     let current = sections[0]?.id;
-    const scrollPos = window.scrollY + 140;
+    // Il buffer viene ricavato dall'altezza reale della navbar (che
+    // cambia tra desktop e mobile) invece di essere un numero fisso:
+    // cosi' l'evidenziazione resta corretta su ogni dispositivo.
+    const navBox = navbar ? navbar.getBoundingClientRect().height : 88;
+    const scrollPos = window.scrollY + navBox + 40;
 
     sections.forEach(section => {
       if (scrollPos >= section.offsetTop) {

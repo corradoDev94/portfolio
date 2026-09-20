@@ -179,3 +179,74 @@ h1,h2,h3{ font-family:'Bebas Neue', 'Oswald', sans-serif; letter-spacing:0.02em;
   .form-row{ grid-template-columns:1fr; }
   .footer-inner{ flex-direction:column; align-items:flex-start; }
 }
+
+
+/* ==========================================================================
+   FIX RESPONSIVE — nessuno scroll orizzontale su mobile
+   Il menu mobile è fuori schermo con translateX(100%): su alcuni browser
+   questo allargava la pagina al doppio della larghezza, creando uno
+   scorrimento laterale indesiderato. Ora il pannello è nascosto anche
+   logicamente finché non viene aperto.
+   ========================================================================== */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 720px) {
+  .nav-links {
+    visibility: hidden;
+    transition: transform .3s ease, visibility .3s ease;
+  }
+
+  .navbar.menu-open .nav-links {
+    visibility: visible;
+  }
+}
+
+/* Il form non fa zoomare Safari iOS */
+@media (max-width: 860px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+/* Aree toccabili adeguate */
+@media (hover: none) and (pointer: coarse) {
+  .btn,
+  .nav-cta,
+  .nav-links a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* Notch / barre di sistema */
+@supports (padding: max(0px)) {
+  .navbar {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+}
+
+/* Il pulsante menu resta sempre tappabile (44x44) anche se l'icona
+   non viene caricata */
+.menu-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+}

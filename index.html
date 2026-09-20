@@ -244,8 +244,8 @@
 
       <div class="stats-grid">
         <div class="stat-card">
-          <h3 data-count="3" data-suffix="+">0</h3>
-          <p>Progetti realizzati</p>
+          <h3 data-count="3" data-suffix="">0</h3>
+          <p>Demo disponibili <span class="stat-sub">Palestra · Ristorante · Barbiere</span></p>
         </div>
         <div class="stat-card">
           <h3 data-count="100" data-suffix="%">0</h3>
@@ -303,17 +303,8 @@
           <span class="timeline-dot"></span>
           <div class="timeline-content">
             <span class="timeline-year">2026</span>
-            <h3>Primi clienti</h3>
-            <p>Realizzazione dei primi progetti reali per clienti e piccole attività.</p>
-          </div>
-        </li>
-
-        <li class="timeline-item">
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">
-            <span class="timeline-year">2026</span>
             <h3>Freelance</h3>
-            <p>Avvio dei primi progetti web per attività e professionisti.</p>
+            <p>Apertura dell'attività freelance: disponibile per i primi progetti web con attività e professionisti.</p>
           </div>
         </li>
       </ol>
@@ -590,7 +581,23 @@
           </span>
         </div>
 
-        <form class="contact-form" id="contactForm" novalidate>
+        <form
+          class="contact-form"
+          id="contactForm"
+          action="https://formspree.io/f/mbgjgynb"
+          method="POST"
+          novalidate
+        >
+          <!--
+            action/method sono un fallback: se per qualche motivo lo
+            script.js non partisse (JS disabilitato, errore di rete sullo
+            script, ecc.), il form funziona comunque come invio HTML
+            nativo verso Formspree, invece di non fare nulla.
+          -->
+          <input type="hidden" name="_subject" value="Nuovo messaggio dal portfolio">
+          <input type="hidden" name="_next" value="https://corradodev94.github.io/portfolio/grazie.html">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
           <div class="form-row">
             <div class="form-group">
               <label for="name">Nome</label>

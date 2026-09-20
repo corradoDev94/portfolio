@@ -17,7 +17,17 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--nav-height);
+  /*
+    Unico punto in cui viene definito lo scarto per lo scroll verso le
+    ancore (#about, #skills, ecc.): la navbar è fixed e alta circa
+    104px, quindi lasciamo un margine di sicurezza di 28px. In
+    precedenza esisteva ANCHE una regola "section[id] { scroll-margin-top:
+    105px }" più in basso nel foglio di stile: i due scarti si sommavano
+    (88px + 105px = 193px), lasciando un vuoto enorme sopra ogni titolo
+    di sezione quando si arrivava tramite il menu. Quella regola duplicata
+    è stata rimossa.
+  */
+  scroll-padding-top: calc(var(--nav-height) + 28px);
   overflow-x: hidden;
 }
 
@@ -169,11 +179,16 @@ textarea:focus-visible {
 }
 
 .section {
-  min-height: calc(100vh - var(--nav-height));
-  padding: 60px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /*
+    NOTA: prima le sezioni avevano min-height a piena viewport e
+    contenuto centrato verticalmente (display:flex + align-items:center).
+    Se il contenuto era più corto della viewport, questo creava un
+    grosso spazio vuoto sopra il titolo ogni volta che si arrivava alla
+    sezione tramite il menu. Ora le sezioni seguono il flusso naturale
+    del contenuto con un padding verticale generoso ma fisso, così lo
+    spazio è sempre coerente e non dipende dall'altezza dello schermo.
+  */
+  padding: 100px 0;
 }
 
 .section-alt {
@@ -1470,6 +1485,8 @@ textarea:focus-visible {
   font-size: 0.9rem;
 }
 
+
+
 /* --------------------------------------------------------------------------
    11c. FAQ
    -------------------------------------------------------------------------- */
@@ -2130,7 +2147,6 @@ a.contact-item:hover {
 /* MOBILE FINAL FIX */
 html { overflow-x: hidden; scroll-behavior: smooth; }
 body { overflow-x: hidden; }
-section[id] { scroll-margin-top: 105px; }
 
 @media (max-width: 700px) {
   .hero { min-height: auto; align-items: flex-start; padding-top: calc(var(--nav-height) + 18px); padding-bottom: 34px; }
@@ -2493,4 +2509,258 @@ section[id] { scroll-margin-top: 105px; }
   .service-card h3, .skill-card h3 { font-size: .88rem; }
   .service-card p, .skill-card p { font-size: .67rem; }
   .project-image { height: 175px; }
+}
+
+
+/* ==========================================================================
+   FIX FINALE — SPAZIATURA SEZIONI E ANCORE
+   --------------------------------------------------------------------------
+   Problema risolto: cliccando su una voce di menu (Competenze, Chi sono,
+   Progetti, Contatti...) restava una grossa fascia vuota tra la navbar e
+   il titolo bianco della sezione. Era la somma di tre spazi:
+     scroll-padding-top (88 + 28)  +  padding-top della sezione (100px)
+   cioè circa 216px di vuoto.
+
+   Soluzione: un solo punto di calcolo. Lo scarto dell'ancora viene
+   calcolato TOGLIENDO il padding interno della sezione, così il titolo
+   si ferma sempre a --nav-gap px sotto la navbar, su qualsiasi schermo.
+   ========================================================================== */
+
+:root {
+  --nav-gap: 18px;        /* aria voluta tra navbar e titolo */
+  --sec-pad-top: 70px;    /* padding interno sopra il titolo */
+  --sec-pad-bottom: 96px; /* respiro prima della sezione successiva */
+}
+
+html {
+  /* lo scarto è gestito da scroll-margin-top sulle singole sezioni */
+  scroll-padding-top: 0;
+}
+
+.section {
+  min-height: auto;
+  padding-top: var(--sec-pad-top);
+  padding-bottom: var(--sec-pad-bottom);
+  scroll-margin-top: calc(var(--nav-height) + var(--nav-gap) - var(--sec-pad-top));
+}
+
+/* La prima sezione dopo l'hero non deve avere un doppio stacco */
+#about {
+  --sec-pad-top: 56px;
+}
+
+.hero {
+  scroll-margin-top: 0;
+}
+
+/* Titolo di sezione: un po' più compatto, così lo spazio "recuperato"
+   viene usato dal contenuto e non lasciato vuoto */
+.section-title {
+  margin-bottom: 34px;
+}
+
+.section-title h2 {
+  margin-top: 10px;
+}
+
+.section-title p {
+  margin-top: 14px;
+}
+
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE — la stessa formula, ricalcolata a ogni breakpoint
+   -------------------------------------------------------------------------- */
+
+/* Tablet orizzontale / laptop piccoli */
+@media (max-width: 1024px) {
+  :root {
+    --sec-pad-top: 62px;
+    --sec-pad-bottom: 84px;
+  }
+}
+
+/* Tablet verticale */
+@media (max-width: 860px) {
+  :root {
+    --sec-pad-top: 54px;
+    --sec-pad-bottom: 72px;
+    --nav-gap: 16px;
+  }
+
+  .section-title { margin-bottom: 30px; }
+}
+
+/* Telefoni */
+@media (max-width: 700px) {
+  :root {
+    --sec-pad-top: 44px;
+    --sec-pad-bottom: 60px;
+    --nav-gap: 14px;
+  }
+
+  .section {
+    padding-top: var(--sec-pad-top);
+    padding-bottom: var(--sec-pad-bottom);
+  }
+
+  #about { --sec-pad-top: 36px; }
+
+  .section-title { margin-bottom: 26px; }
+  .section-title h2 { margin-top: 8px; }
+  .section-title p { margin-top: 12px; }
+}
+
+/* Telefoni piccoli */
+@media (max-width: 390px) {
+  :root {
+    --sec-pad-top: 38px;
+    --sec-pad-bottom: 52px;
+  }
+}
+
+/* Telefono in orizzontale: navbar e hero non devono occupare tutto */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--nav-height) + 12px);
+    padding-bottom: 32px;
+  }
+
+  :root {
+    --sec-pad-top: 36px;
+    --sec-pad-bottom: 48px;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE — rifiniture generali
+   -------------------------------------------------------------------------- */
+
+/* Niente scroll orizzontale, mai */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Media e tabelle non escono mai dal contenitore */
+img,
+svg,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Notch / barre di sistema su iPhone e Android */
+.navbar,
+.footer,
+.whatsapp-float,
+.back-to-top {
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+@supports (padding: max(0px)) {
+  .whatsapp-float {
+    bottom: max(76px, calc(env(safe-area-inset-bottom, 0px) + 76px));
+  }
+
+  .back-to-top {
+    bottom: max(18px, calc(env(safe-area-inset-bottom, 0px) + 18px));
+  }
+}
+
+/* Aree toccabili conformi alle linee guida mobile (min 44px) */
+@media (hover: none) and (pointer: coarse) {
+  .nav-link,
+  .footer-links a,
+  .btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-link {
+    justify-content: flex-start;
+  }
+}
+
+/* Il form non deve far zoomare Safari iOS: font >= 16px */
+@media (max-width: 860px) {
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 16px;
+  }
+}
+
+/* Schermi molto larghi: il contenuto resta leggibile e centrato */
+@media (min-width: 1600px) {
+  :root { --container: 1320px; }
+}
+
+/* Il pulsante menu resta sempre tappabile (44x44) anche se l'icona
+   non viene caricata */
+.menu-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ==========================================================================
+   FIX MENU MOBILE — allineamento del pannello
+   La .nav-container usa backdrop-filter: questo la rende il "contenitore
+   di riferimento" per gli elementi in position:fixed al suo interno, quindi
+   il pannello del menu (left/right: 4%) veniva calcolato sulla navbar e
+   non sullo schermo, risultando stretto e disallineato.
+   Ora il pannello è ancorato direttamente alla barra: stessa larghezza,
+   sempre allineato, su qualunque telefono.
+   ========================================================================== */
+
+@media (max-width: 860px) {
+  .nav-container {
+    position: relative;
+  }
+
+  .navbar.menu-open .nav-links {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: auto;
+    max-height: calc(100dvh - var(--nav-height) - 40px);
+    overflow-y: auto;
+    padding: 22px 22px 24px;
+    background: #05070d;
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 22px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    z-index: 1200;
+  }
+
+  .navbar.menu-open .nav-link {
+    font-size: 1rem;
+    padding: 13px 2px;
+  }
+}
+
+/* Nel menu mobile aperto la sottolineatura andava a sovrapporsi alla voce
+   successiva: la voce attiva viene evidenziata con colore e sfondo. */
+@media (max-width: 860px) {
+  .navbar.menu-open .nav-link::after {
+    display: none;
+  }
+
+  .navbar.menu-open .nav-link.active {
+    color: var(--primary);
+  }
 }
