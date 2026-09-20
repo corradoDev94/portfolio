@@ -438,6 +438,17 @@ textarea:focus-visible {
   z-index: 1000;
   padding: 18px 0;
   transition: padding var(--speed) var(--ease);
+
+  /*
+     Forza la navbar su un livello grafico separato (GPU): dentro i
+     browser in-app come WhatsApp/Instagram, un elemento "fixed" con
+     sfocatura sopra può "saltare" o sfarfallare durante lo scroll.
+     Questo lo rende stabile.
+  */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .nav-container {
@@ -647,6 +658,7 @@ textarea:focus-visible {
 
 .hero {
   min-height: calc(100vh - var(--nav-height));
+  min-height: calc(100dvh - var(--nav-height));
 
   display: flex;
   align-items: center;
@@ -2005,6 +2017,18 @@ a.contact-item:hover {
 
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  /*
+     Su tablet in verticale (es. iPad) l'altezza dello schermo è molto
+     maggiore della larghezza: centrare l'hero su tutto lo schermo
+     lasciava troppo spazio vuoto sopra e sotto il contenuto.
+  */
+  .hero {
+    min-height: auto;
+    align-items: flex-start;
+    padding-top: calc(var(--nav-height) + 48px);
+    padding-bottom: 64px;
   }
 }
 
