@@ -932,6 +932,25 @@ textarea:focus-visible {
   font-size: 0.83rem;
 }
 
+.profile-location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  margin-top: 18px;
+  padding-top: 18px;
+
+  border-top: 1px solid var(--border);
+
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.profile-location i {
+  color: var(--primary);
+}
+
 /* --------------------------------------------------------------------------
    7. CHI SONO
    -------------------------------------------------------------------------- */
