@@ -750,6 +750,16 @@ textarea:focus-visible {
   margin-top: 8px;
 }
 
+/*
+   Riga vantaggi dell'hero (icone + etichetta): esiste nel markup per
+   tutti gli schermi, ma viene mostrata SOLO da mobile (vedi media query
+   più sotto), per rispecchiare l'impaginazione richiesta senza toccare
+   in alcun modo il layout desktop/tablet.
+*/
+.hero-features {
+  display: none;
+}
+
 .hero-social {
   display: flex;
   gap: 16px;
@@ -2236,9 +2246,40 @@ a.contact-item:hover {
     font-size: 0.95rem;
   }
 
+  /* Riga vantaggi: 2x2, icone allineate a sinistra, come nel riferimento */
+  .hero-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  .hero-features li {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 12px 13px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .hero-features i {
+    color: var(--primary);
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+
   .hero-social {
     gap: 12px;
-    margin-top: 2px;
+    margin-top: 6px;
   }
 
   .hero-social a {
@@ -2316,10 +2357,36 @@ a.contact-item:hover {
     font-size: 0.88rem;
   }
 
+  /*
+     "Chi sono": sul telefono i numeri (stats-grid) vengono spostati
+     visivamente in cima alla sezione, subito sotto l'hero, come una
+     fascia di numeri autonoma — proprio come nel riferimento inviato.
+     Il markup nell'HTML resta invariato (per non cambiare nulla su
+     desktop/tablet): il riordino avviene solo con flex + order, solo
+     qui dentro, solo sotto i 640px.
+  */
+  #about > .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #about .stats-grid {
+    order: -1;
+  }
+
+  #about .section-title {
+    order: 0;
+  }
+
+  #about .about-grid {
+    order: 1;
+  }
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
-    margin-top: 36px;
+    margin-top: 0;
+    margin-bottom: 40px;
   }
 
   .stat-card {
