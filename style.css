@@ -1983,8 +1983,18 @@ a.contact-item:hover {
 
 /* --------------------------------------------------------------------------
    15. RESPONSIVE
+   --------------------------------------------------------------------------
+   Sistema unico di breakpoint, dal più largo al più stretto. Il layout
+   desktop (sopra i 1100px) è definito nelle sezioni precedenti e qui non
+   viene mai toccato: ogni regola qui sotto vive dentro una media query.
    -------------------------------------------------------------------------- */
 
+/* Schermi molto larghi: contenuto un po' più ampio, resta centrato */
+@media (min-width: 1600px) {
+  :root { --container: 1320px; }
+}
+
+/* ---- Laptop piccoli / tablet orizzontale ---- */
 @media (max-width: 1100px) {
   .hero-container {
     grid-template-columns: 1.1fr 1fr;
@@ -1992,23 +2002,32 @@ a.contact-item:hover {
   }
 
   .hero-right {
-    max-width: 460px;
+    max-width: 440px;
   }
 }
 
+/* ---- Tablet ---- */
 @media (max-width: 900px) {
+  .hero {
+    min-height: auto;
+    align-items: flex-start;
+    padding-top: calc(var(--nav-height) + 40px);
+    padding-bottom: 56px;
+  }
+
   .hero-container {
-    grid-template-columns: 1fr 0.9fr;
+    grid-template-columns: 1fr 0.85fr;
     gap: 32px;
   }
 
   .hero-right {
-    max-width: 430px;
+    max-width: 380px;
     width: 100%;
   }
 
   .about-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 
   .stats-grid {
@@ -2017,168 +2036,474 @@ a.contact-item:hover {
 
   .contact-grid {
     grid-template-columns: 1fr;
-  }
-
-  /*
-     Su tablet in verticale (es. iPad) l'altezza dello schermo è molto
-     maggiore della larghezza: centrare l'hero su tutto lo schermo
-     lasciava troppo spazio vuoto sopra e sotto il contenuto.
-  */
-  .hero {
-    min-height: auto;
-    align-items: flex-start;
-    padding-top: calc(var(--nav-height) + 48px);
-    padding-bottom: 64px;
+    gap: 32px;
   }
 }
 
-@media (max-width: 700px) {
-  .hero-container {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  /*
-     Su telefono la card dei contatti viene nascosta: a questa
-     larghezza non ci sta in modo leggibile accanto al testo (o
-     sopra/sotto senza sembrare rotta). Le stesse informazioni
-     (email, WhatsApp, GitHub...) restano raggiungibili tramite i
-     bottoni/icone dell'hero e nella sezione Contatti più in basso.
-  */
-  .hero-right {
-    display: none;
-  }
-}
-
+/* ---- Tablet verticale: passaggio al menu hamburger ---- */
 @media (max-width: 860px) {
   .nav-links {
     display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .projects-grid {
     grid-template-columns: 1fr;
   }
 
-  .menu-toggle {
-    display: block;
+  /* Pannello del menu mobile: ancorato alla navbar, stessa larghezza,
+     sempre allineato indipendentemente dal contenuto della nav */
+  .nav-container {
+    position: relative;
   }
 
   .navbar.menu-open .nav-container {
-    border-radius: var(--radius-lg);
-    background: rgba(5, 7, 13, 0.98);
+    border-radius: 24px;
   }
 
   .navbar.menu-open .nav-links {
     display: flex;
-
     flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
 
-    align-items: flex-start;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    right: 0;
+    width: auto;
 
-    gap: 4px;
+    max-height: calc(100dvh - var(--nav-height) - 40px);
+    overflow-y: auto;
 
-    width: 100%;
+    margin: 0;
+    padding: 18px 20px 20px;
 
-    margin-top: 20px;
+    background: #05070d;
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 22px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
 
-    padding-top: 20px;
-
-    border-top: 1px solid var(--border);
-  }
-
-  .navbar.menu-open .nav-container {
-    flex-wrap: wrap;
+    z-index: 1200;
   }
 
   .navbar.menu-open .nav-link {
     width: 100%;
-    padding: 10px 4px;
+    padding: 14px 6px;
+    font-size: 1.02rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
-  .section {
-    padding: 28px 0 44px;
+  .navbar.menu-open .nav-link:last-child {
+    border-bottom: 0;
   }
 
-  .hero {
-    padding-top: calc(var(--nav-height) + 20px);
+  .navbar.menu-open .nav-link::after {
+    display: none;
+  }
+
+  .navbar.menu-open .nav-link.active {
+    color: var(--primary);
+  }
+
+  /* I campi del form non devono far zoomare Safari iOS (serve >=16px) */
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 16px;
   }
 }
 
+/* ---- Smartphone: qui avviene la vera trasformazione mobile ---- */
 @media (max-width: 640px) {
+  .container {
+    width: min(90%, 560px);
+  }
+
+  html {
+    scroll-padding-top: calc(var(--nav-height) + 16px);
+  }
+
+  /* NAVBAR */
+  .navbar {
+    padding: 12px 0;
+  }
+
+  .nav-container {
+    width: 90%;
+    padding: 11px 16px;
+    border-radius: 20px;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  /* SEZIONI: un solo ritmo verticale coerente su tutto il sito */
+  .section {
+    padding: 56px 0;
+    scroll-margin-top: calc(var(--nav-height) + 16px);
+  }
+
+  #about {
+    padding-top: 44px;
+  }
+
+  .section-title {
+    max-width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .section-title .eyebrow {
+    font-size: 0.76rem;
+    letter-spacing: 1.6px;
+  }
+
+  .section-title h2 {
+    margin-top: 10px;
+    font-size: clamp(1.7rem, 8vw, 2.15rem);
+    line-height: 1.18;
+  }
+
+  .section-title p {
+    margin-top: 12px;
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: auto;
+    align-items: flex-start;
+    padding-top: calc(var(--nav-height) + 24px);
+    padding-bottom: 48px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .hero-left,
+  .hero-right {
+    width: 100%;
+    max-width: 100%;
+    justify-self: stretch;
+  }
+
+  .hero-left {
+    gap: 16px;
+  }
+
+  .hero-badge {
+    align-self: flex-start;
+    max-width: 100%;
+    padding: 9px 14px;
+    font-size: 0.8rem;
+    line-height: 1.35;
+    white-space: normal;
+  }
+
+  .hero-title {
+    max-width: 100%;
+    font-size: clamp(1.9rem, 8.5vw, 2.4rem);
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
   .hero-buttons {
     flex-direction: column;
     width: 100%;
+    gap: 12px;
+    margin-top: 4px;
   }
 
   .hero-buttons .btn {
     width: 100%;
+    min-height: 52px;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+  }
+
+  .hero-social {
+    gap: 12px;
+    margin-top: 2px;
+  }
+
+  .hero-social a {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+  }
+
+  /* PROFILE CARD: card di contatto, ordinata e leggibile a piena larghezza */
+  .profile-card {
+    width: 100%;
+    padding: 26px 24px;
+    border-radius: 24px;
+    text-align: left;
+    animation: none;
+  }
+
+  .profile-photo {
+    width: 76px;
+    height: 76px;
+    margin: 0 0 14px;
+  }
+
+  .profile-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .profile-role {
+    font-size: 0.88rem;
+    margin-bottom: 22px;
+  }
+
+  .profile-info {
+    gap: 10px;
+  }
+
+  .info-item {
+    padding: 14px 15px;
+  }
+
+  .info-item strong {
+    font-size: 0.85rem;
+  }
+
+  .info-item span {
+    font-size: 0.8rem;
+  }
+
+  .profile-location {
+    justify-content: flex-start;
+    font-size: 0.85rem;
+  }
+
+  /* CHI SONO */
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .about-tags {
+    gap: 8px;
+  }
+
+  .about-tags li {
+    padding: 9px 13px;
+    font-size: 0.8rem;
+  }
+
+  .info-card {
+    padding: 26px;
+    border-radius: 20px;
+  }
+
+  .info-list li {
+    font-size: 0.88rem;
   }
 
   .stats-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 36px;
+  }
+
+  .stat-card {
+    padding: 24px 16px;
+    border-radius: 18px;
+  }
+
+  .stat-card h3 {
+    font-size: 2rem;
+  }
+
+  .stat-card h3.stat-text {
+    font-size: 1.4rem;
+  }
+
+  .stat-card p {
+    font-size: 0.82rem;
+  }
+
+  .stat-sub {
+    font-size: 0.72rem;
+  }
+
+  /* PERCORSO */
+  .timeline {
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-dot {
+    left: -28px;
+  }
+
+  .timeline-item {
+    margin-bottom: 28px;
+  }
+
+  .timeline-content {
+    padding: 22px 20px;
+    border-radius: 18px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.15rem;
+  }
+
+  /*
+    SERVIZI / SKILLS: niente colonne forzate. Le griglie usano già
+    auto-fit con una larghezza minima per card (vedi regole di base),
+    quindi su schermo stretto vanno naturalmente a una sola colonna,
+    piena larghezza, testo comodo da leggere — niente card striminzite.
+  */
+  .services-grid,
+  .skills-grid {
     gap: 16px;
+    margin-top: 32px;
+  }
+
+  .service-card,
+  .skill-card {
+    padding: 26px 24px;
+  }
+
+  .service-card h3,
+  .skill-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .service-card p,
+  .skill-card p {
+    font-size: 0.88rem;
+  }
+
+  /* PROGETTI */
+  .projects-grid {
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .project-card {
+    border-radius: 20px;
+  }
+
+  .project-image {
+    height: 200px;
+  }
+
+  .project-content {
+    padding: 20px;
+  }
+
+  .project-content h3 {
+    font-size: 1.15rem;
+  }
+
+  .project-content p {
+    font-size: 0.85rem;
+  }
+
+  /* FAQ */
+  .faq-item summary {
+    padding: 18px 20px;
+    font-size: 0.95rem;
+  }
+
+  .faq-item p {
+    padding: 0 20px 20px;
+    font-size: 0.88rem;
+  }
+
+  /* CONTATTI */
+  .contact-card,
+  .contact-form {
+    padding: 26px;
+    border-radius: 20px;
+  }
+
+  .contact-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .contact-item {
+    font-size: 0.88rem;
   }
 
   .form-row {
     grid-template-columns: 1fr;
   }
 
+  /* FOOTER */
   .footer-content {
     flex-direction: column;
     align-items: flex-start;
+    gap: 24px;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 14px 20px;
+  }
+
+  .footer-bottom-content {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  /* PULSANTI FLOTTANTI */
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+    right: 16px;
+    bottom: 80px;
+    font-size: 1.3rem;
   }
 
   .back-to-top {
-    right: 18px;
-    bottom: 18px;
-
-    width: 44px;
-    height: 44px;
-  }
-
-  .nav-container {
-    padding: 12px 18px;
-  }
-
-  .process-grid,
-  .why-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-social,
-  .about-tags {
-    justify-content: flex-start;
-  }
-
-  .profile-card {
-    padding: 30px 24px;
-  }
-
-  .profile-photo {
-    width: 82px;
-    height: 82px;
-  }
-
-  .whatsapp-float {
-    width: 48px;
-    height: 48px;
-    right: 18px;
-    bottom: 78px;
-    font-size: 1.3rem;
+    width: 46px;
+    height: 46px;
+    right: 16px;
+    bottom: 20px;
   }
 }
 
-@media (max-width: 380px) {
-  .hero-title {
-    font-size: 2.1rem;
+/* ---- Smartphone piccoli ---- */
+@media (max-width: 400px) {
+  .hero-container,
+  .nav-container {
+    width: 92%;
   }
 
-  .section {
-    padding: 24px 0 36px;
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-text {
+    font-size: 0.94rem;
   }
 
   .profile-card {
-    padding: 28px 20px;
+    padding: 22px 20px;
   }
 
   .stats-grid {
@@ -2186,499 +2511,21 @@ a.contact-item:hover {
   }
 }
 
-
-/* MOBILE FINAL FIX */
-html { overflow-x: hidden; scroll-behavior: smooth; }
-body { overflow-x: hidden; }
-
-@media (max-width: 700px) {
-  .hero { min-height: auto; align-items: flex-start; padding-top: calc(var(--nav-height) + 18px); padding-bottom: 34px; }
-  .hero-container { width: 94%; grid-template-columns: minmax(0, 1.28fr) minmax(118px, 0.72fr); gap: 12px; align-items: start; }
-  .hero-left, .hero-right { min-width: 0; width: 100%; }
-  .hero-right { display: block; max-width: none; justify-self: stretch; }
-  .hero-badge { width: 100%; max-width: 100%; min-width: 0; padding: 8px 10px; gap: 7px; font-size: .67rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .hero-badge i { flex: 0 0 auto; }
-  .hero-title { max-width: none; font-size: clamp(1.45rem, 6vw, 2rem); line-height: 1.13; letter-spacing: -.025em; overflow-wrap: anywhere; }
-  .hero-text { max-width: none; font-size: .82rem; line-height: 1.55; overflow-wrap: anywhere; }
-  .hero-left { gap: 12px; }
-  .hero-buttons { flex-direction: column; width: 100%; gap: 9px; margin-top: 2px; }
-  .hero-buttons .btn { width: 100%; min-width: 0; padding: 11px 10px; font-size: .78rem; line-height: 1.25; }
-  .hero-social { gap: 7px; margin-top: 1px; }
-  .hero-social a { width: 38px; height: 38px; font-size: .95rem; }
-  .profile-card { width: 100%; min-width: 0; padding: 16px 9px; border-radius: 22px; animation: none; overflow: hidden; }
-  .profile-photo { width: 58px; height: 58px; margin-bottom: 9px; border-width: 2px; }
-  .profile-card h3 { font-size: .88rem; line-height: 1.1; overflow-wrap: anywhere; margin-bottom: 4px; }
-  .profile-role { font-size: .62rem; line-height: 1.3; overflow-wrap: anywhere; }
-  .profile-info { gap: 6px; margin-top: 9px; }
-  .info-item { gap: 6px; padding: 8px 6px; border-radius: 11px; min-width: 0; }
-  .info-item i { width: 15px; font-size: .68rem; }
-  .info-item strong { font-size: .62rem; line-height: 1.15; margin-bottom: 2px; }
-  .info-item span { display: block; font-size: .56rem; line-height: 1.3; overflow-wrap: anywhere; word-break: break-word; }
-  .services-grid, .skills-grid, .process-grid, .why-grid, .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
-  .service-card, .skill-card { min-width: 0; padding: 18px 13px; border-radius: 18px; }
-  .service-card i { font-size: 1.45rem; margin-bottom: 12px; }
-  .service-card h3, .skill-card h3 { font-size: .95rem; line-height: 1.2; overflow-wrap: anywhere; }
-  .service-card p, .skill-card p { font-size: .7rem; line-height: 1.45; overflow-wrap: anywhere; }
-  .skill-icon { width: 42px; height: 42px; margin-bottom: 12px; }
-  .projects-grid { margin-top: 28px; }
-  .project-card { min-width: 0; }
-  .project-content { padding: 14px; }
-  .project-content h3 { font-size: .95rem; line-height: 1.2; overflow-wrap: anywhere; }
-  .project-content p { font-size: .7rem; line-height: 1.4; }
-  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 22px; }
-  .section { min-height: auto; padding: 42px 0; }
-  .section-title { max-width: 100%; }
-  .section-title h2 { font-size: clamp(1.55rem, 7vw, 2rem); line-height: 1.15; overflow-wrap: anywhere; }
-  .section-title p { font-size: .82rem; line-height: 1.5; }
-  .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .stat-card { min-width: 0; padding: 18px 10px; }
-  .form-row { grid-template-columns: 1fr; }
-  .footer-content { flex-direction: column; align-items: flex-start; }
-  .whatsapp-float { width: 48px; height: 48px; right: 14px; bottom: 72px; font-size: 1.25rem; }
-}
-
-@media (max-width: 390px) {
-  .hero-container { width: 95%; grid-template-columns: minmax(0, 1.25fr) minmax(108px, .75fr); gap: 9px; }
-  .hero-title { font-size: 1.38rem; }
-  .hero-text { font-size: .76rem; }
-  .profile-card { padding: 14px 7px; }
-  .profile-photo { width: 52px; height: 52px; }
-  .profile-card h3 { font-size: .8rem; }
-  .profile-role { font-size: .57rem; }
-  .info-item { padding: 7px 5px; }
-  .info-item strong { font-size: .57rem; }
-  .info-item span { font-size: .51rem; }
-  .services-grid, .skills-grid, .process-grid, .why-grid, .projects-grid { gap: 9px; }
-  .service-card, .skill-card { padding: 15px 10px; }
-  .service-card h3, .skill-card h3, .project-content h3 { font-size: .84rem; }
-  .service-card p, .skill-card p, .project-content p { font-size: .64rem; }
-}
-
-
-/* ==========================================================================\n   MOBILE PROFESSIONAL LAYOUT\n   Desktop layout is intentionally untouched.\n   ========================================================================== */
-@media (max-width: 860px) {
-  .navbar.menu-open .nav-links {
-    position: fixed;
-    top: 92px;
-    left: 4%;
-    right: 4%;
-    width: auto;
-    max-height: calc(100dvh - 112px);
-    overflow-y: auto;
-    margin: 0;
-    padding: 28px 26px 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 2px;
-    background: rgba(5, 7, 13, 0.99);
-    border: 1px solid rgba(56, 189, 248, 0.22);
-    border-radius: 28px;
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    z-index: 1100;
-  }
-
-  .navbar.menu-open .nav-links::before {
-    content: "MENU";
-    display: block;
-    color: var(--text-faint);
-    font-size: .68rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin: 0 4px 14px;
-  }
-
-  .navbar.menu-open .nav-link {
-    width: 100%;
-    padding: 14px 4px;
-    font-size: 1.05rem;
-    border-bottom: 1px solid rgba(255,255,255,.06);
-  }
-
-  .navbar.menu-open .nav-link:last-child { border-bottom: 0; }
-}
-
-@media (max-width: 700px) {
-  html { overflow-x: hidden; }
-  body { overflow-x: hidden; }
-  .container { width: min(92%, 560px); }
-
-  /* NAVBAR */
-  .navbar { padding: 12px 0; }
-  .nav-container {
-    width: 92%;
-    min-height: 58px;
-    padding: 11px 18px;
-    border-radius: 24px;
-  }
-  .logo { font-size: 1.35rem; }
-  .menu-toggle { display: flex; align-items: center; justify-content: center; font-size: 1.5rem; padding: 5px; }
-
-  /* HERO: mobile vero, non desktop schiacciato */
-  .hero {
-    min-height: auto;
-    padding-top: calc(var(--nav-height) + 24px);
-    padding-bottom: 54px;
-  }
-  .hero-container {
-    width: min(92%, 560px);
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    align-items: stretch;
-  }
-  .hero-left,
-  .hero-right { width: 100%; min-width: 0; }
-  .hero-left { gap: 16px; }
-
-  .hero-badge {
-    align-self: flex-start;
-    max-width: 100%;
-    padding: 9px 13px;
-    font-size: .75rem;
-    line-height: 1.2;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .hero-title {
-    max-width: 100%;
-    margin: 0;
-    font-size: clamp(2rem, 9vw, 2.65rem);
-    line-height: 1.08;
-    letter-spacing: -.035em;
-    overflow-wrap: normal;
-  }
-  .hero-text {
-    max-width: 100%;
-    margin: 0;
-    font-size: .98rem;
-    line-height: 1.6;
-  }
-
-  .hero-buttons {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-    margin-top: 2px;
-  }
-  .hero-buttons .btn {
-    width: 100%;
-    min-height: 52px;
-    padding: 13px 18px;
-    font-size: .92rem;
-  }
-  .hero-social {
-    justify-content: flex-start;
-    gap: 10px;
-    margin-top: 0;
-  }
-  .hero-social a {
-    width: 44px;
-    height: 44px;
-    border-radius: 14px;
-  }
-
-  /* PROFILE: card compatta e ordinata sotto il messaggio */
-  .hero-right { max-width: none; justify-self: stretch; }
-  .profile-card {
-    width: 100%;
-    padding: 22px;
-    border-radius: 24px;
-    text-align: left;
-    animation: none;
-  }
-  .profile-photo {
-    width: 68px;
-    height: 68px;
-    margin: 0 0 10px;
-  }
-  .profile-card h3 {
-    font-size: 1.25rem;
-    line-height: 1.15;
-    margin-bottom: 4px;
-  }
-  .profile-role {
-    font-size: .82rem;
-    line-height: 1.35;
-  }
-  .profile-info {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 9px;
-    margin-top: 16px;
-  }
-  .info-item {
-    min-width: 0;
-    padding: 11px 10px;
-    gap: 9px;
-    border-radius: 14px;
-    align-items: flex-start;
-  }
-  .info-item:first-child { grid-column: 1 / -1; }
-  .info-item i { width: 18px; font-size: .85rem; margin-top: 2px; }
-  .info-item strong { font-size: .74rem; line-height: 1.15; margin-bottom: 3px; }
-  .info-item span {
-    display: block;
-    font-size: .68rem;
-    line-height: 1.35;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
-
-  /* SEZIONI */
-  .section {
-    min-height: auto;
-    padding: 58px 0;
-  }
-  .section-title {
-    max-width: 100%;
-    margin-bottom: 30px;
-  }
-  .section-title .eyebrow { font-size: .72rem; letter-spacing: 1.8px; }
-  .section-title h2 {
-    margin-top: 10px;
-    font-size: clamp(1.8rem, 8vw, 2.35rem);
-    line-height: 1.12;
-  }
-  .section-title p { margin-top: 14px; font-size: .94rem; line-height: 1.55; }
-
-  /* CHI SONO */
-  .about-grid,
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-  .about-text p { font-size: .98rem; line-height: 1.65; margin-bottom: 18px; }
-  .about-tags { gap: 8px; margin: 8px 0 24px; }
-  .about-tags li { padding: 8px 11px; font-size: .75rem; }
-  .info-card { padding: 22px; border-radius: 20px; }
-  .info-card h3 { font-size: 1.15rem; margin-bottom: 18px; }
-  .info-list li { font-size: .82rem; gap: 10px; margin-bottom: 14px; }
-  .stats-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; margin-top: 34px; }
-  .stat-card { padding: 20px 10px; border-radius: 18px; }
-  .stat-card h3 { font-size: 2rem; }
-  .stat-card h3.stat-text { font-size: 1.35rem; }
-  .stat-card p { font-size: .76rem; }
-  .stat-sub { font-size: .65rem; }
-
-  /* TIMELINE */
-  .timeline { padding-left: 26px; }
-  .timeline::before { left: 8px; }
-  .timeline-dot { left: -26px; width: 14px; height: 14px; }
-  .timeline-item { margin-bottom: 26px; }
-  .timeline-content { padding: 20px; border-radius: 18px; }
-
-  /* SERVIZI / SKILLS / PROCESSO / WHY: due colonne compatte */
-  .services-grid,
-  .skills-grid,
-  .process-grid,
-  .why-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 30px;
-  }
-  .service-card,
-  .skill-card {
-    min-width: 0;
-    padding: 20px 15px;
-    border-radius: 18px;
-  }
-  .service-card i { font-size: 1.65rem; margin-bottom: 14px; }
-  .service-card h3,
-  .skill-card h3 { font-size: .95rem; line-height: 1.2; margin-bottom: 8px; overflow-wrap: anywhere; }
-  .service-card p,
-  .skill-card p { font-size: .72rem; line-height: 1.45; }
-  .skill-icon { width: 40px; height: 40px; margin-bottom: 11px; }
-
-  /* PROGETTI: una colonna, immagini leggibili */
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    margin-top: 30px;
-  }
-  .project-card { border-radius: 20px; }
-  .project-image { height: 190px; }
-  .project-content { padding: 17px; }
-  .project-category,
-  .project-status { font-size: .68rem; padding: 5px 9px; }
-  .project-content h3 { font-size: 1.12rem; line-height: 1.2; }
-  .project-content p { font-size: .78rem; line-height: 1.5; }
-
-  /* CONTATTI / FORM */
-  .contact-card,
-  .contact-form { padding: 22px; border-radius: 20px; }
-  .contact-card h3 { font-size: 1.2rem; margin-bottom: 18px; }
-  .contact-item { gap: 11px; padding: 12px 0; font-size: .82rem; }
-  .form-row { grid-template-columns: 1fr; gap: 14px; }
-  .form-group input,
-  .form-group textarea { padding: 13px 14px; font-size: .9rem; }
-
-  /* CTA / FOOTER */
-  .cta-inner h2 { font-size: 1.85rem; }
-  .cta-inner p { font-size: .92rem; line-height: 1.55; margin-bottom: 24px; }
-  .cta-buttons { flex-direction: column; }
-  .cta-buttons .btn { width: 100%; }
-  .footer-content { flex-direction: column; align-items: flex-start; gap: 12px; }
-
-  .whatsapp-float {
-    width: 52px;
-    height: 52px;
-    right: 16px;
-    bottom: 76px;
-    font-size: 1.35rem;
-  }
-  .back-to-top { width: 44px; height: 44px; right: 16px; bottom: 18px; }
-}
-
-@media (max-width: 390px) {
-  .container, .hero-container { width: 91%; }
-  .nav-container { width: 91%; padding-left: 16px; padding-right: 16px; }
-  .hero { padding-top: calc(var(--nav-height) + 18px); }
-  .hero-title { font-size: 1.88rem; }
-  .hero-text { font-size: .9rem; }
-  .profile-card { padding: 18px; }
-  .profile-photo { width: 62px; height: 62px; }
-  .profile-card h3 { font-size: 1.12rem; }
-  .profile-role { font-size: .76rem; }
-  .info-item { padding: 10px 8px; }
-  .info-item strong { font-size: .7rem; }
-  .info-item span { font-size: .63rem; }
-  .services-grid, .skills-grid, .process-grid, .why-grid { gap: 9px; }
-  .service-card, .skill-card { padding: 17px 11px; }
-  .service-card h3, .skill-card h3 { font-size: .88rem; }
-  .service-card p, .skill-card p { font-size: .67rem; }
-  .project-image { height: 175px; }
-}
-
-
-/* ==========================================================================
-   FIX FINALE — SPAZIATURA SEZIONI E ANCORE
-   --------------------------------------------------------------------------
-   Problema risolto: cliccando su una voce di menu (Competenze, Chi sono,
-   Progetti, Contatti...) restava una grossa fascia vuota tra la navbar e
-   il titolo bianco della sezione. Era la somma di tre spazi:
-     scroll-padding-top (88 + 28)  +  padding-top della sezione (100px)
-   cioè circa 216px di vuoto.
-
-   Soluzione: un solo punto di calcolo. Lo scarto dell'ancora viene
-   calcolato TOGLIENDO il padding interno della sezione, così il titolo
-   si ferma sempre a --nav-gap px sotto la navbar, su qualsiasi schermo.
-   ========================================================================== */
-
-:root {
-  --nav-gap: 18px;        /* aria voluta tra navbar e titolo */
-  --sec-pad-top: 70px;    /* padding interno sopra il titolo */
-  --sec-pad-bottom: 96px; /* respiro prima della sezione successiva */
-}
-
-html {
-  /* lo scarto è gestito da scroll-margin-top sulle singole sezioni */
-  scroll-padding-top: 0;
-}
-
-.section {
-  min-height: auto;
-  padding-top: var(--sec-pad-top);
-  padding-bottom: var(--sec-pad-bottom);
-  scroll-margin-top: calc(var(--nav-height) + var(--nav-gap) - var(--sec-pad-top));
-}
-
-/* La prima sezione dopo l'hero non deve avere un doppio stacco */
-#about {
-  --sec-pad-top: 56px;
-}
-
-.hero {
-  scroll-margin-top: 0;
-}
-
-/* Titolo di sezione: un po' più compatto, così lo spazio "recuperato"
-   viene usato dal contenuto e non lasciato vuoto */
-.section-title {
-  margin-bottom: 34px;
-}
-
-.section-title h2 {
-  margin-top: 10px;
-}
-
-.section-title p {
-  margin-top: 14px;
-}
-
-
-/* --------------------------------------------------------------------------
-   RESPONSIVE — la stessa formula, ricalcolata a ogni breakpoint
-   -------------------------------------------------------------------------- */
-
-/* Tablet orizzontale / laptop piccoli */
-@media (max-width: 1024px) {
-  :root {
-    --sec-pad-top: 62px;
-    --sec-pad-bottom: 84px;
-  }
-}
-
-/* Tablet verticale */
-@media (max-width: 860px) {
-  :root {
-    --sec-pad-top: 54px;
-    --sec-pad-bottom: 72px;
-    --nav-gap: 16px;
-  }
-
-  .section-title { margin-bottom: 30px; }
-}
-
-/* Telefoni */
-@media (max-width: 700px) {
-  :root {
-    --sec-pad-top: 44px;
-    --sec-pad-bottom: 60px;
-    --nav-gap: 14px;
-  }
-
-  .section {
-    padding-top: var(--sec-pad-top);
-    padding-bottom: var(--sec-pad-bottom);
-  }
-
-  #about { --sec-pad-top: 36px; }
-
-  .section-title { margin-bottom: 26px; }
-  .section-title h2 { margin-top: 8px; }
-  .section-title p { margin-top: 12px; }
-}
-
-/* Telefoni piccoli */
-@media (max-width: 390px) {
-  :root {
-    --sec-pad-top: 38px;
-    --sec-pad-bottom: 52px;
-  }
-}
-
-/* Telefono in orizzontale: navbar e hero non devono occupare tutto */
+/* Telefono in orizzontale: hero e sezioni non devono occupare tutto */
 @media (max-height: 520px) and (orientation: landscape) {
   .hero {
     min-height: auto;
-    padding-top: calc(var(--nav-height) + 12px);
-    padding-bottom: 32px;
+    padding-top: calc(var(--nav-height) + 14px);
+    padding-bottom: 34px;
   }
 
-  :root {
-    --sec-pad-top: 36px;
-    --sec-pad-bottom: 48px;
+  .section {
+    padding: 40px 0;
   }
 }
 
-
 /* --------------------------------------------------------------------------
-   RESPONSIVE — rifiniture generali
+   16. RIFINITURE GENERALI (tutti i breakpoint)
    -------------------------------------------------------------------------- */
 
 /* Niente scroll orizzontale, mai */
@@ -2688,7 +2535,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Media e tabelle non escono mai dal contenitore */
+/* Media e iframe non escono mai dal contenitore */
 img,
 svg,
 video,
@@ -2708,11 +2555,11 @@ iframe {
 
 @supports (padding: max(0px)) {
   .whatsapp-float {
-    bottom: max(76px, calc(env(safe-area-inset-bottom, 0px) + 76px));
+    bottom: max(80px, calc(env(safe-area-inset-bottom, 0px) + 80px));
   }
 
   .back-to-top {
-    bottom: max(18px, calc(env(safe-area-inset-bottom, 0px) + 18px));
+    bottom: max(20px, calc(env(safe-area-inset-bottom, 0px) + 20px));
   }
 }
 
@@ -2722,88 +2569,15 @@ iframe {
   .footer-links a,
   .btn {
     min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
   }
 
-  .nav-link {
-    justify-content: flex-start;
+  /* Evita che l'hover "resti attaccato" dopo un tap su schermi touch */
+  .timeline-content:hover {
+    transform: none;
   }
 }
 
-/* Il form non deve far zoomare Safari iOS: font >= 16px */
-@media (max-width: 860px) {
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    font-size: 16px;
-  }
-}
-
-/* Schermi molto larghi: il contenuto resta leggibile e centrato */
-@media (min-width: 1600px) {
-  :root { --container: 1320px; }
-}
-
-/* Il pulsante menu resta sempre tappabile (44x44) anche se l'icona
-   non viene caricata */
 .menu-toggle {
   min-width: 44px;
   min-height: 44px;
-  align-items: center;
-  justify-content: center;
-}
-
-
-/* ==========================================================================
-   FIX MENU MOBILE — allineamento del pannello
-   La .nav-container usa backdrop-filter: questo la rende il "contenitore
-   di riferimento" per gli elementi in position:fixed al suo interno, quindi
-   il pannello del menu (left/right: 4%) veniva calcolato sulla navbar e
-   non sullo schermo, risultando stretto e disallineato.
-   Ora il pannello è ancorato direttamente alla barra: stessa larghezza,
-   sempre allineato, su qualunque telefono.
-   ========================================================================== */
-
-@media (max-width: 860px) {
-  .nav-container {
-    position: relative;
-  }
-
-  .navbar.menu-open .nav-links {
-    position: absolute;
-    top: calc(100% + 12px);
-    left: 0;
-    right: 0;
-    bottom: auto;
-    width: auto;
-    max-height: calc(100dvh - var(--nav-height) - 40px);
-    overflow-y: auto;
-    padding: 22px 22px 24px;
-    background: #05070d;
-    border: 1px solid rgba(56, 189, 248, 0.22);
-    border-radius: 22px;
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    z-index: 1200;
-  }
-
-  .navbar.menu-open .nav-link {
-    font-size: 1rem;
-    padding: 13px 2px;
-  }
-}
-
-/* Nel menu mobile aperto la sottolineatura andava a sovrapporsi alla voce
-   successiva: la voce attiva viene evidenziata con colore e sfondo. */
-@media (max-width: 860px) {
-  .navbar.menu-open .nav-link::after {
-    display: none;
-  }
-
-  .navbar.menu-open .nav-link.active {
-    color: var(--primary);
-  }
 }
