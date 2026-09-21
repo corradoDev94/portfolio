@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const animateCounter = (el) => {
     const target = parseInt(el.getAttribute('data-count'), 10);
     const suffix = el.getAttribute('data-suffix') || '';
-    const duration = 1400;
+    const duration = 900;
     const start = performance.now();
 
     const step = (now) => {
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
 
     counters.forEach(el => counterObserver.observe(el));
   } else {
