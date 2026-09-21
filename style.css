@@ -757,7 +757,24 @@ textarea:focus-visible {
    in alcun modo il layout desktop/tablet.
 */
 .hero-features {
-  display: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+  margin-top: 6px;
+}
+
+.hero-features li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.hero-features i {
+  color: var(--primary);
+  font-size: 0.95rem;
 }
 
 .hero-social {
@@ -2076,6 +2093,12 @@ a.contact-item:hover {
     border-radius: 24px;
   }
 
+  /* Il toggle deve restare sopra il pannello per poter chiudere il menu */
+  .navbar.menu-open .menu-toggle {
+    position: relative;
+    z-index: 1300;
+  }
+
   .navbar.menu-open .nav-links {
     display: flex;
     flex-direction: column;
@@ -2647,4 +2670,352 @@ iframe {
 .menu-toggle {
   min-width: 44px;
   min-height: 44px;
+}
+
+/* --------------------------------------------------------------------------
+   13. NAVBAR — CTA "Parliamone" + multi-pagina
+   -------------------------------------------------------------------------- */
+
+.nav-cta {
+  flex-shrink: 0;
+  padding: 11px 20px;
+  font-size: 0.92rem;
+}
+
+.nav-cta i {
+  font-size: 0.8rem;
+  margin-left: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   14. PAGE HERO — intestazione compatta per le pagine interne
+   -------------------------------------------------------------------------- */
+
+.page-hero {
+  padding: calc(var(--nav-height) + 64px) 0 24px;
+}
+
+.page-hero .section-title {
+  margin-bottom: 0;
+}
+
+.section-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 44px;
+}
+
+.section-header-row .section-title {
+  margin-bottom: 0;
+}
+
+.section-link {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding-bottom: 4px;
+}
+
+.section-link i {
+  font-size: 0.85rem;
+  transition: transform var(--speed) var(--ease);
+}
+
+.section-link:hover i {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   15. FILTRI PROGETTI
+   -------------------------------------------------------------------------- */
+
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.filter-tab {
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background var(--speed) var(--ease),
+    color var(--speed) var(--ease),
+    border-color var(--speed) var(--ease);
+}
+
+.filter-tab:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.filter-tab.active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #04121f;
+  border-color: transparent;
+}
+
+.project-card.is-hidden {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   16. PROGETTI — anteprima Home (mini card con solo link)
+   -------------------------------------------------------------------------- */
+
+.project-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-top: 6px;
+}
+
+.project-card-link i {
+  font-size: 0.8rem;
+  transition: transform var(--speed) var(--ease);
+}
+
+.project-card-link:hover i {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   17. PAGINA PROGETTO (case study)
+   -------------------------------------------------------------------------- */
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 20px;
+}
+
+.back-link:hover {
+  color: var(--primary);
+}
+
+.back-link i {
+  font-size: 0.85rem;
+}
+
+.project-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.project-hero-text .project-category {
+  margin-bottom: 18px;
+}
+
+.project-hero-text h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+
+.project-hero-text p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 28px;
+}
+
+.project-hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.browser-frame {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+}
+
+.browser-frame-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--border);
+}
+
+.browser-frame-bar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.browser-frame img {
+  width: 100%;
+  display: block;
+}
+
+.project-section {
+  padding: 64px 0;
+}
+
+.project-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 24px;
+}
+
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.tech-icons span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.tech-icons i {
+  color: var(--primary);
+  font-size: 1.05rem;
+}
+
+.include-list {
+  display: grid;
+  gap: 14px;
+  max-width: 640px;
+}
+
+.include-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.include-list i {
+  color: var(--success);
+  margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   18. MENU MOBILE — overlay a schermo intero (smartphone)
+   -------------------------------------------------------------------------- */
+
+.nav-cta-mobile {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .nav-cta {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar.menu-open .nav-links {
+    top: 0;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    width: auto;
+    max-height: none;
+    height: calc(100dvh - 32px);
+
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 6px;
+
+    padding: 90px 22px 28px;
+    border-radius: 26px;
+    background: #05070d;
+  }
+
+  .navbar.menu-open .nav-link {
+    text-align: center;
+    font-size: 1.15rem;
+    padding: 16px 6px;
+  }
+
+  .navbar.menu-open .nav-cta-mobile {
+    display: block;
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .navbar.menu-open .nav-cta-mobile a {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .project-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .section-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .page-hero {
+    padding-top: calc(var(--nav-height) + 40px);
+  }
+
+  .filter-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-tab {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .project-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
 }

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contatti | Cristofer Corrado</title>
+
+  <meta name="description" content="Contatta Cristofer Corrado per il tuo prossimo sito web: email, WhatsApp o modulo di contatto diretto.">
+  <meta name="author" content="Cristofer Corrado">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#070b14">
+  <link rel="canonical" href="https://corradodev94.github.io/portfolio/contatti.html">
+
+  <meta property="og:title" content="Contatti | Cristofer Corrado">
+  <meta property="og:description" content="Contatta Cristofer Corrado per il tuo prossimo sito web: email, WhatsApp o modulo di contatto diretto.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://corradodev94.github.io/portfolio/contatti.html">
+  <meta property="og:image" content="https://corradodev94.github.io/portfolio/images/og-cover.png">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="Cristofer Corrado | Web Developer">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contatti | Cristofer Corrado">
+  <meta name="twitter:description" content="Contatta Cristofer Corrado per il tuo prossimo sito web: email, WhatsApp o modulo di contatto diretto.">
+  <meta name="twitter:image" content="https://corradodev94.github.io/portfolio/images/og-cover.png">
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Salta al contenuto principale</a>
+
+  <div class="background-grid" aria-hidden="true"></div>
+  <div class="glow glow-1" aria-hidden="true"></div>
+  <div class="glow glow-2" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="navbar">
+    <nav class="nav-container">
+      <a href="index.html" class="logo">CC<span>.</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="progetti.html" class="nav-link">Progetti</a></li>
+        <li><a href="servizi.html" class="nav-link">Servizi</a></li>
+        <li><a href="chi-sono.html" class="nav-link">Chi sono</a></li>
+        <li><a href="contatti.html" class="nav-link active">Contatti</a></li>
+        <li class="nav-cta-mobile">
+          <a href="contatti.html" class="btn btn-primary">Parliamone <i class="fa-solid fa-arrow-right"></i></a>
+        </li>
+      </ul>
+
+      <a href="contatti.html" class="btn btn-primary nav-cta">Parliamone <i class="fa-solid fa-arrow-right"></i></a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="navLinks">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Contatti</span>
+        <h2>Parliamo del tuo progetto</h2>
+        <p>Hai bisogno di un sito web moderno, veloce e responsive? Contattami e sarò felice di parlarne con te.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Contatti</h3>
+
+          <a href="mailto:cristofer.corrado@gmail.com" class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            cristofer.corrado@gmail.com
+          </a>
+
+          <a href="https://wa.me/393510144331" target="_blank" rel="noopener" class="contact-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            WhatsApp diretto
+          </a>
+
+          <a href="https://github.com/corradodev94" target="_blank" rel="noopener" class="contact-item">
+            <i class="fa-brands fa-github"></i>
+            github.com/corradodev94
+          </a>
+
+          <a href="https://instagram.com/cri_caly" target="_blank" rel="noopener" class="contact-item">
+            <i class="fa-brands fa-instagram"></i>
+            @cri_caly
+          </a>
+
+          <span class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            Modena, Italia
+          </span>
+        </div>
+
+        <form
+          class="contact-form"
+          id="contactForm"
+          action="https://formspree.io/f/mbgjgynb"
+          method="POST"
+          novalidate
+        >
+          <input type="hidden" name="_subject" value="Nuovo messaggio dal portfolio">
+          <input type="hidden" name="_next" value="https://corradodev94.github.io/portfolio/grazie.html">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nome</label>
+              <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="latua@email.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Oggetto</label>
+            <input type="text" id="subject" name="subject" placeholder="Di cosa vuoi parlare?" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Messaggio</label>
+            <textarea id="message" name="message" rows="6" placeholder="Scrivi il tuo messaggio..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary submit-btn">
+            Invia messaggio
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <h3>Cristofer Corrado</h3>
+        <p>Web Developer Freelance</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Link di navigazione">
+        <a href="index.html">Home</a>
+        <a href="progetti.html">Progetti</a>
+        <a href="servizi.html">Servizi</a>
+        <a href="chi-sono.html">Chi sono</a>
+        <a href="contatti.html">Contatti</a>
+      </nav>
+
+      <div class="footer-social">
+        <a href="mailto:cristofer.corrado@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="https://wa.me/393510144331" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="https://github.com/corradodev94" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://instagram.com/cri_caly" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-content">
+        <span>&copy; 2026 Cristofer Corrado &middot; Tutti i diritti riservati.</span>
+        <nav class="footer-legal" aria-label="Link legali">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="cookie.html">Cookie Policy</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#main" class="back-to-top" id="backToTop" aria-label="Torna in cima">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a>
+
+  <a href="https://wa.me/393510144331?text=Ciao%20Cristofer!%20Vorrei%20un%20preventivo%20per%20un%20sito%20web" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Scrivimi su WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
