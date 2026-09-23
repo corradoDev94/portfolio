@@ -43,41 +43,32 @@ document.addEventListener('DOMContentLoaded', () => {
   toggleNavbarScrolled();
 
   /* ------------------------------------------------------------------
-     2. SCROLL-SPY — evidenzia il link attivo nella navbar
+     2. LINK ATTIVO — il sito è multi-pagina: la voce attiva nella navbar
+     è quella la cui pagina corrisponde alla pagina corrente (già marcata
+     lato HTML con la classe "active"), quindi qui non serve scroll-spy.
   ------------------------------------------------------------------ */
-  const navItems = document.querySelectorAll('.nav-link');
 
-  // Solo le sezioni che hanno un link corrispondente nel menu vengono
-  // usate per calcolare la voce attiva. Le sezioni "intermedie" (es.
-  // Percorso, Servizi, FAQ) non hanno una voce di menu dedicata: senza
-  // questo filtro, scorrendole si disattivava l'evidenziazione di TUTTI
-  // i link finché non si raggiungeva la sezione successiva presente nel
-  // menu, dando l'impressione che l'evidenziazione fosse "rotta".
-  const navHrefs = new Set(Array.from(navItems).map(link => link.getAttribute('href')));
-  const sections = Array.from(document.querySelectorAll('section[id]'))
-    .filter(section => navHrefs.has(`#${section.id}`));
+  /* ------------------------------------------------------------------
+     2b. FILTRO PROGETTI (pagina progetti.html)
+  ------------------------------------------------------------------ */
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const filterableCards = document.querySelectorAll('[data-category]');
 
-  const setActiveLink = () => {
-    let current = sections[0]?.id;
-    // Il buffer viene ricavato dall'altezza reale della navbar (che
-    // cambia tra desktop e mobile) invece di essere un numero fisso:
-    // cosi' l'evidenziazione resta corretta su ogni dispositivo.
-    const navBox = navbar ? navbar.getBoundingClientRect().height : 88;
-    const scrollPos = window.scrollY + navBox + 40;
+  if (filterTabs.length && filterableCards.length) {
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
 
-    sections.forEach(section => {
-      if (scrollPos >= section.offsetTop) {
-        current = section.id;
-      }
+        const category = tab.getAttribute('data-filter');
+
+        filterableCards.forEach(card => {
+          const match = category === 'tutti' || card.getAttribute('data-category') === category;
+          card.classList.toggle('is-hidden', !match);
+        });
+      });
     });
-
-    navItems.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-    });
-  };
-
-  window.addEventListener('scroll', setActiveLink, { passive: true });
-  setActiveLink();
+  }
 
   /* ------------------------------------------------------------------
      3. BACK TO TOP
@@ -109,7 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
     '.info-card',
     '.about-text',
     '.contact-card',
-    '.contact-form'
+    '.contact-form',
+    '.project-hero-text',
+    '.browser-frame'
   ];
 
   const revealEls = document.querySelectorAll(revealSelectors.join(','));
