@@ -29,6 +29,24 @@ document.addEventListener('DOMContentLoaded', () => {
         menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
       });
     });
+
+    // Chiude il menu toccando fuori dal riquadro, o premendo Esc
+    document.addEventListener('click', (event) => {
+      if (!navbar.classList.contains('menu-open')) return;
+      if (event.target.closest('.nav-container')) return;
+
+      navbar.classList.remove('menu-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && navbar.classList.contains('menu-open')) {
+        navbar.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      }
+    });
   }
 
   /* ------------------------------------------------------------------

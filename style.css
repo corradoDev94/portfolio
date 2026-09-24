@@ -522,6 +522,15 @@ textarea:focus-visible {
   padding-bottom: 4px;
 }
 
+/*
+   Icona davanti al testo dei link: esiste nel markup per poterla
+   mostrare nel pannello del menu mobile (più leggibile e più bella),
+   ma su desktop/tablet resta nascosta per non toccare il nav attuale.
+*/
+.nav-link-icon {
+  display: none;
+}
+
 .nav-link::after {
   content: "";
 
@@ -2082,29 +2091,45 @@ a.contact-item:hover {
     display: none;
   }
 
-  /* NAVBAR "luminosa": bagliore ciano che respira dolcemente attorno
-     alla pillola della nav, logo con un accenno di glow, bottone menu
-     ridisegnato come icona rotonda con anello acceso. Solo mobile:
-     desktop/tablet non vengono toccati. */
+  /*
+     NAVBAR: pillola più curata, con bordo sfumato, leggero bagliore
+     che respira piano e un punto luce dietro al logo — non solo
+     un'animazione, ma un look più "premium" in generale.
+     Solo mobile/tablet: desktop resta come prima.
+  */
   .nav-container {
-    animation: navPulseGlow 4.5s ease-in-out infinite;
+    position: relative;
+    background:
+      linear-gradient(180deg, rgba(18, 24, 38, 0.96), rgba(6, 9, 16, 0.97));
+    border-color: rgba(56, 189, 248, 0.2);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 14px 34px rgba(0, 0, 0, 0.45);
+    animation: navPulseGlow 5s ease-in-out infinite;
   }
 
   @keyframes navPulseGlow {
     0%, 100% {
       box-shadow:
-        0 0 0 1px rgba(56, 189, 248, 0.1),
-        0 10px 30px rgba(56, 189, 248, 0.08);
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 14px 34px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(56, 189, 248, 0.1);
     }
     50% {
       box-shadow:
-        0 0 0 1px rgba(56, 189, 248, 0.28),
-        0 10px 36px rgba(56, 189, 248, 0.24);
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 14px 38px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(56, 189, 248, 0.32),
+        0 0 26px rgba(56, 189, 248, 0.16);
     }
   }
 
+  .logo {
+    position: relative;
+  }
+
   .logo span {
-    text-shadow: 0 0 14px rgba(56, 189, 248, 0.75);
+    text-shadow: 0 0 14px rgba(56, 189, 248, 0.8);
   }
 
   .menu-toggle {
@@ -2112,13 +2137,17 @@ a.contact-item:hover {
     align-items: center;
     justify-content: center;
 
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
 
-    border-radius: 12px;
+    border-radius: 13px;
 
-    background: var(--primary-soft);
-    border: 1px solid rgba(56, 189, 248, 0.28);
+    background: linear-gradient(
+      160deg,
+      rgba(56, 189, 248, 0.16),
+      rgba(56, 189, 248, 0.05)
+    );
+    border: 1px solid rgba(56, 189, 248, 0.3);
 
     transition:
       box-shadow var(--speed) var(--ease),
@@ -2126,27 +2155,30 @@ a.contact-item:hover {
       background var(--speed) var(--ease);
   }
 
+  .menu-toggle i {
+    transition: transform 0.3s var(--ease);
+  }
+
   .menu-toggle:active {
     transform: scale(0.92);
   }
 
   .navbar.menu-open .menu-toggle {
-    background: rgba(56, 189, 248, 0.18);
-    box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.14);
+    background: rgba(56, 189, 248, 0.22);
+    box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.14);
+  }
+
+  .navbar.menu-open .menu-toggle i {
+    transform: rotate(90deg);
   }
 
   .projects-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Pannello del menu mobile: ancorato alla navbar, stessa larghezza,
-     sempre allineato indipendentemente dal contenuto della nav */
-  .nav-container {
-    position: relative;
-  }
-
   .navbar.menu-open .nav-container {
     border-radius: 24px;
+    border-color: rgba(56, 189, 248, 0.32);
   }
 
   /* Il toggle deve restare sopra il pannello per poter chiudere il menu */
@@ -2155,14 +2187,21 @@ a.contact-item:hover {
     z-index: 1300;
   }
 
+  /*
+     PANNELLO DEL MENU: card scura con bordo sfumato luminoso,
+     una striscia a gradiente in cima, voci con icona in un cerchio
+     colorato e la voce attiva evidenziata con una pillola sfumata.
+     Ogni voce entra con una piccola animazione in sequenza quando
+     il menu si apre, così il pannello non sembra mai vuoto.
+  */
   .navbar.menu-open .nav-links {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 2px;
+    gap: 6px;
 
     position: absolute;
-    top: calc(100% + 12px);
+    top: calc(100% + 14px);
     left: 0;
     right: 0;
     width: auto;
@@ -2171,25 +2210,92 @@ a.contact-item:hover {
     overflow-y: auto;
 
     margin: 0;
-    padding: 18px 20px 20px;
+    padding: 22px 16px 18px;
 
-    background: #05070d;
-    border: 1px solid rgba(56, 189, 248, 0.22);
-    border-radius: 22px;
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(180deg, #0a0e18, #05070d 60%);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    border-radius: 24px;
+    box-shadow:
+      0 26px 70px rgba(0, 0, 0, 0.6),
+      0 0 34px rgba(56, 189, 248, 0.1);
 
     z-index: 1200;
   }
 
-  .navbar.menu-open .nav-link {
-    width: 100%;
-    padding: 14px 6px;
-    font-size: 1.02rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  .navbar.menu-open .nav-links::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 18%;
+    right: 18%;
+    height: 3px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0.85;
   }
 
-  .navbar.menu-open .nav-link:last-child {
+  .navbar.menu-open .nav-links li {
+    list-style: none;
+  }
+
+  .navbar.menu-open .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    padding: 13px 14px;
+    border-radius: 15px;
+
+    color: var(--text-muted);
+    font-size: 1rem;
+
     border-bottom: 0;
+
+    animation: navLinkIn 0.4s var(--ease) both;
+  }
+
+  .navbar.menu-open .nav-links li:nth-child(1) .nav-link { animation-delay: 0.03s; }
+  .navbar.menu-open .nav-links li:nth-child(2) .nav-link { animation-delay: 0.08s; }
+  .navbar.menu-open .nav-links li:nth-child(3) .nav-link { animation-delay: 0.13s; }
+  .navbar.menu-open .nav-links li:nth-child(4) .nav-link { animation-delay: 0.18s; }
+  .navbar.menu-open .nav-links li:nth-child(5) .nav-link { animation-delay: 0.23s; }
+
+  @keyframes navLinkIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .nav-link-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: var(--text-muted);
+    font-size: 0.85rem;
+
+    transition:
+      background var(--speed) var(--ease),
+      color var(--speed) var(--ease),
+      border-color var(--speed) var(--ease);
+  }
+
+  .navbar.menu-open .nav-link:active {
+    background: rgba(255, 255, 255, 0.04);
   }
 
   .navbar.menu-open .nav-link::after {
@@ -2197,7 +2303,50 @@ a.contact-item:hover {
   }
 
   .navbar.menu-open .nav-link.active {
-    color: var(--primary);
+    color: #04121f;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    box-shadow: 0 8px 22px rgba(56, 189, 248, 0.3);
+  }
+
+  .navbar.menu-open .nav-link.active .nav-link-icon {
+    background: rgba(4, 18, 31, 0.18);
+    border-color: transparent;
+    color: #04121f;
+  }
+
+  .navbar.menu-open .nav-cta-mobile {
+    display: block;
+    margin-top: 8px;
+    padding-top: 14px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    animation: navLinkIn 0.4s var(--ease) both;
+    animation-delay: 0.28s;
+  }
+
+  /*
+     TENDINA DI SFONDO: scurisce il resto della pagina mentre il menu
+     è aperto, così il pannello risalta di più e si può chiudere anche
+     toccando fuori (gestito in script.js).
+  */
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 950;
+
+    background: rgba(2, 4, 9, 0.65);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--speed) var(--ease);
+  }
+
+  .navbar.menu-open + .nav-overlay {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   /* I campi del form non devono far zoomare Safari iOS (serve >=16px) */
@@ -2723,11 +2872,10 @@ a.contact-item:hover {
     display: none;
   }
 
+  /* Tasto "torna su" nascosto da mobile: coperto dalla barra di
+     contatto rapido fissa in fondo, ormai inutile qui */
   .back-to-top {
-    width: 44px;
-    height: 44px;
-    right: 14px;
-    bottom: calc(72px + env(safe-area-inset-bottom, 0px) + 14px);
+    display: none;
   }
 
   /* --------------------------------------------------------------
@@ -3193,7 +3341,7 @@ iframe {
 }
 
 /* --------------------------------------------------------------------------
-   18. MENU MOBILE — overlay a schermo intero (smartphone)
+   18. MENU MOBILE — dettagli extra per la tendina (smartphone)
    -------------------------------------------------------------------------- */
 
 .nav-cta-mobile {
@@ -3207,37 +3355,6 @@ iframe {
 }
 
 @media (max-width: 640px) {
-  .navbar.menu-open .nav-links {
-    top: 0;
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
-    width: auto;
-    max-height: none;
-    height: calc(100dvh - 32px);
-
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 6px;
-
-    padding: 90px 22px 28px;
-    border-radius: 26px;
-    background: #05070d;
-  }
-
-  .navbar.menu-open .nav-link {
-    text-align: center;
-    font-size: 1.15rem;
-    padding: 16px 6px;
-  }
-
-  .navbar.menu-open .nav-cta-mobile {
-    display: block;
-    margin-top: 14px;
-    text-align: center;
-  }
-
   .navbar.menu-open .nav-cta-mobile a {
     display: inline-flex;
     width: 100%;
