@@ -2367,12 +2367,6 @@ a.contact-item:hover {
     scroll-padding-top: calc(var(--nav-height) + 16px);
   }
 
-  /* Spazio in fondo per non far finire i contenuti sotto la barra
-     di contatto rapido fissa (mobile-cta-bar) */
-  body {
-    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
-  }
-
   /* NAVBAR */
   .navbar {
     padding: 12px 0;
@@ -2864,81 +2858,6 @@ a.contact-item:hover {
     flex-direction: column;
     gap: 10px;
     text-align: center;
-  }
-
-  /* PULSANTE WHATSAPP FLOTTANTE: sostituito dalla barra di contatto
-     rapido fissa in fondo (mobile-cta-bar), quindi qui va nascosto */
-  .whatsapp-float {
-    display: none;
-  }
-
-  /* Tasto "torna su" nascosto da mobile: coperto dalla barra di
-     contatto rapido fissa in fondo, ormai inutile qui */
-  .back-to-top {
-    display: none;
-  }
-
-  /* --------------------------------------------------------------
-     BARRA DI CONTATTO RAPIDO — fissa in fondo, solo smartphone
-     -------------------------------------------------------------- */
-  .mobile-cta-bar {
-    display: flex;
-
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1100;
-
-    background: rgba(5, 7, 13, 0.98);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    border-top: 1px solid rgba(56, 189, 248, 0.28);
-    box-shadow:
-      0 -10px 34px rgba(0, 0, 0, 0.5),
-      0 -1px 14px rgba(56, 189, 248, 0.18);
-
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-
-  .mobile-cta-btn {
-    flex: 1;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-
-    padding: 15px 10px;
-
-    font-weight: 700;
-    font-size: 0.85rem;
-
-    position: relative;
-    overflow: hidden;
-
-    transition: filter var(--speed) var(--ease), transform 0.15s var(--ease);
-  }
-
-  .mobile-cta-btn i {
-    font-size: 1.05rem;
-  }
-
-  .mobile-cta-call {
-    color: var(--text);
-    background: rgba(255, 255, 255, 0.03);
-    border-right: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .mobile-cta-whatsapp {
-    color: #fff;
-    background: linear-gradient(135deg, #25d366, #128c7e);
-  }
-
-  .mobile-cta-btn:active {
-    filter: brightness(0.9);
-    transform: scale(0.97);
   }
 
   /* --------------------------------------------------------------
