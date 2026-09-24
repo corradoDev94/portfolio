@@ -13,7 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.getElementById('navLinks');
 
   if (menuToggle && navbar) {
-    menuToggle.addEventListener('click', () => {
+    menuToggle.addEventListener('click', (event) => {
+      // Impedisce che questo stesso click raggiunga il listener sul document
+      // (quello che chiude il menu cliccando "fuori"): senza questo, se il tap
+      // cade esattamente sull'icona dentro il bottone, l'icona viene sostituita
+      // a runtime e il listener globale la trova "staccata" dal DOM, scambiando
+      // il click per un click esterno e richiudendo il menu nello stesso istante.
+      event.stopPropagation();
+
       const isOpen = navbar.classList.toggle('menu-open');
       menuToggle.setAttribute('aria-expanded', isOpen);
       menuToggle.innerHTML = isOpen
