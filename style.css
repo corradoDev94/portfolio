@@ -579,6 +579,7 @@ textarea:focus-visible {
   justify-content: center;
 
   gap: 10px;
+  min-height: 48px;
   padding: 16px 32px;
 
   border-radius: var(--radius-md);
@@ -793,8 +794,8 @@ textarea:focus-visible {
 }
 
 .hero-social a {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
 
   display: flex;
   align-items: center;
@@ -1456,7 +1457,8 @@ textarea:focus-visible {
 }
 
 .project-image {
-  height: 260px;
+  aspect-ratio: 16 / 9;
+  height: auto;
   overflow: hidden;
 }
 
@@ -1877,8 +1879,8 @@ a.contact-item:hover {
 }
 
 .footer-social a {
-  width: 42px;
-  height: 42px;
+  width: 48px;
+  height: 48px;
 
   display: flex;
   align-items: center;
@@ -2034,9 +2036,37 @@ a.contact-item:hover {
    viene mai toccato: ogni regola qui sotto vive dentro una media query.
    -------------------------------------------------------------------------- */
 
+/* ---- Desktop (> 1024px): contenitore principale non supera mai 1280px,
+   così il layout non si sforma su monitor 2K/4K ---- */
+@media (min-width: 1025px) {
+  :root { --container: 1280px; }
+}
+
 /* Schermi molto larghi: contenuto un po' più ampio, resta centrato */
 @media (min-width: 1600px) {
   :root { --container: 1320px; }
+}
+
+/* ---- Tablet (769px - 1024px): evita che i link del menu si
+   sovrappongano al logo quando la navbar è ancora orizzontale ---- */
+@media (min-width: 861px) and (max-width: 1024px) {
+  .nav-links {
+    gap: 18px;
+  }
+
+  .nav-link {
+    font-size: 0.88rem;
+  }
+
+  .nav-cta {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  .projects-grid,
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* ---- Laptop piccoli / tablet orizzontale ---- */
@@ -2137,8 +2167,8 @@ a.contact-item:hover {
     align-items: center;
     justify-content: center;
 
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
 
     border-radius: 13px;
 
@@ -2987,8 +3017,12 @@ iframe {
 @media (hover: none) and (pointer: coarse) {
   .nav-link,
   .footer-links a,
-  .btn {
-    min-height: 44px;
+  .btn,
+  .filter-tab,
+  .project-card-link,
+  .section-link,
+  .back-link {
+    min-height: 48px;
   }
 
   /* Evita che l'hover "resti attaccato" dopo un tap su schermi touch */
@@ -2998,8 +3032,8 @@ iframe {
 }
 
 .menu-toggle {
-  min-width: 44px;
-  min-height: 44px;
+  min-width: 48px;
+  min-height: 48px;
 }
 
 /* --------------------------------------------------------------------------
@@ -3073,7 +3107,11 @@ iframe {
 }
 
 .filter-tab {
-  padding: 10px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 10px 22px;
   border-radius: var(--radius-full);
   border: 1px solid var(--border);
   background: var(--surface);
@@ -3201,8 +3239,11 @@ iframe {
   background: rgba(255, 255, 255, 0.14);
 }
 
-.browser-frame img {
+.browser-frame img,
+.browser-frame svg {
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   display: block;
 }
 
@@ -3317,4 +3358,123 @@ iframe {
     grid-template-columns: 1fr;
     gap: 36px;
   }
+}
+
+/* --------------------------------------------------------------------------
+   19. STICKY BOTTOM ACTION BAR — barra fissa in basso su mobile con
+   pulsanti rapidi di conversione (Email / WhatsApp). Presente solo nelle
+   pagine che includono il markup ".mobile-action-bar"; su desktop e
+   tablet resta sempre nascosta.
+   -------------------------------------------------------------------------- */
+
+.mobile-action-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  body.has-mobile-bar {
+    padding-bottom: 82px;
+  }
+
+  .mobile-action-bar {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1100;
+
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+
+    background: linear-gradient(180deg, rgba(9, 13, 22, 0.7), rgba(5, 7, 13, 0.98) 45%);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-top: 1px solid var(--border-strong);
+    box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .mobile-action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 48px;
+
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-strong);
+    background: var(--surface-strong);
+    color: var(--text);
+
+    font-weight: 700;
+    font-size: 0.92rem;
+
+    transition:
+      transform 0.2s var(--ease),
+      background var(--speed) var(--ease),
+      box-shadow var(--speed) var(--ease);
+  }
+
+  .mobile-action-btn i {
+    font-size: 1.05rem;
+  }
+
+  .mobile-action-btn:active {
+    transform: scale(0.96);
+  }
+
+  .mobile-action-btn-whatsapp {
+    background: #25D366;
+    border-color: transparent;
+    color: #06210f;
+    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.3);
+  }
+
+  /* Con la barra attiva, il bottone WhatsApp flottante non serve più
+     (sarebbe ridondante) e "torna in cima" si sposta più in alto per
+     non essere coperto dalla barra fissa. */
+  body.has-mobile-bar .whatsapp-float {
+    display: none;
+  }
+
+  body.has-mobile-bar .back-to-top {
+    bottom: calc(74px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* --------------------------------------------------------------------------
+   20. TIPOGRAFIA FLUIDA & LEGGIBILITÀ — rifiniture finali richieste
+   dallo schema UX/UI: line-height 1.6 sui testi, clamp() sui titoli
+   principali ancora fissi, aspect-ratio 16:9 su tutti i mockup.
+   -------------------------------------------------------------------------- */
+
+p,
+li,
+.hero-text,
+.section-title p,
+.about-text p,
+.contact-card,
+.legal-container p {
+  line-height: 1.6;
+}
+
+.project-hero-text h1 {
+  font-size: clamp(2rem, 4vw + 0.5rem, 2.8rem);
+}
+
+.error-code {
+  font-size: clamp(5rem, 18vw, 9rem);
+}
+
+img[src*="mockup"] {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-md);
 }
