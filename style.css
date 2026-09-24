@@ -809,6 +809,15 @@ textarea:focus-visible {
   box-shadow: 0 12px 30px rgba(56, 189, 248, 0.22);
 }
 
+/*
+   Fascia numeri mostrata solo nella home, solo da smartphone, subito
+   sotto l'hero (vedi index.html e media query più sotto). Su
+   desktop/tablet resta sempre nascosta: niente cambia lì.
+*/
+.mobile-stats {
+  display: none;
+}
+
 /* --------------------------------------------------------------------------
    HERO — CARD DESTRA
    -------------------------------------------------------------------------- */
@@ -2073,10 +2082,57 @@ a.contact-item:hover {
     display: none;
   }
 
+  /* NAVBAR "luminosa": bagliore ciano che respira dolcemente attorno
+     alla pillola della nav, logo con un accenno di glow, bottone menu
+     ridisegnato come icona rotonda con anello acceso. Solo mobile:
+     desktop/tablet non vengono toccati. */
+  .nav-container {
+    animation: navPulseGlow 4.5s ease-in-out infinite;
+  }
+
+  @keyframes navPulseGlow {
+    0%, 100% {
+      box-shadow:
+        0 0 0 1px rgba(56, 189, 248, 0.1),
+        0 10px 30px rgba(56, 189, 248, 0.08);
+    }
+    50% {
+      box-shadow:
+        0 0 0 1px rgba(56, 189, 248, 0.28),
+        0 10px 36px rgba(56, 189, 248, 0.24);
+    }
+  }
+
+  .logo span {
+    text-shadow: 0 0 14px rgba(56, 189, 248, 0.75);
+  }
+
   .menu-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+
+    background: var(--primary-soft);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+
+    transition:
+      box-shadow var(--speed) var(--ease),
+      transform 0.2s var(--ease),
+      background var(--speed) var(--ease);
+  }
+
+  .menu-toggle:active {
+    transform: scale(0.92);
+  }
+
+  .navbar.menu-open .menu-toggle {
+    background: rgba(56, 189, 248, 0.18);
+    box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.14);
   }
 
   .projects-grid {
@@ -2162,6 +2218,12 @@ a.contact-item:hover {
     scroll-padding-top: calc(var(--nav-height) + 16px);
   }
 
+  /* Spazio in fondo per non far finire i contenuti sotto la barra
+     di contatto rapido fissa (mobile-cta-bar) */
+  body {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  }
+
   /* NAVBAR */
   .navbar {
     padding: 12px 0;
@@ -2229,8 +2291,20 @@ a.contact-item:hover {
     justify-self: stretch;
   }
 
+  /*
+     Su mobile la card con la foto va SUBITO in cima, prima di tutto
+     il testo: chi entra vede prima un volto/identità (elemento
+     visivo), non solo un blocco di scritte. Markup HTML invariato:
+     si cambia solo l'ordine visivo con "order", solo qui sotto i
+     640px — desktop e tablet restano identici.
+  */
+  .hero-right {
+    order: -1;
+    margin-bottom: 6px;
+  }
+
   .hero-left {
-    gap: 16px;
+    gap: 14px;
   }
 
   .hero-badge {
@@ -2244,9 +2318,9 @@ a.contact-item:hover {
 
   .hero-title {
     max-width: 100%;
-    font-size: clamp(1.9rem, 8.5vw, 2.4rem);
-    line-height: 1.18;
-    letter-spacing: -0.03em;
+    font-size: clamp(1.55rem, 7vw, 1.95rem);
+    line-height: 1.22;
+    letter-spacing: -0.02em;
   }
 
   .hero-text {
@@ -2311,49 +2385,77 @@ a.contact-item:hover {
     border-radius: 13px;
   }
 
-  /* PROFILE CARD: card di contatto, ordinata e leggibile a piena larghezza */
+  /* PROFILE CARD: ora è il primo elemento dell'hero, va resa una
+     "intestazione" compatta e d'impatto: foto + nome + ruolo in riga,
+     poi contatti/location sotto. */
   .profile-card {
     width: 100%;
-    padding: 26px 24px;
-    border-radius: 24px;
+    padding: 20px;
+    border-radius: 22px;
     text-align: left;
     animation: none;
   }
 
+  .profile-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .profile-heading {
+    text-align: left;
+  }
+
   .profile-photo {
-    width: 76px;
-    height: 76px;
-    margin: 0 0 14px;
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    border-width: 2px;
+    flex-shrink: 0;
   }
 
   .profile-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
   }
 
   .profile-role {
-    font-size: 0.88rem;
-    margin-bottom: 22px;
+    font-size: 0.78rem;
+    margin-bottom: 0;
   }
 
   .profile-info {
-    gap: 10px;
+    gap: 8px;
   }
 
   .info-item {
-    padding: 14px 15px;
+    padding: 11px 13px;
   }
 
   .info-item strong {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
   }
 
   .info-item span {
-    font-size: 0.8rem;
+    font-size: 0.76rem;
   }
 
   .profile-location {
     justify-content: flex-start;
-    font-size: 0.85rem;
+    margin-top: 14px;
+    padding-top: 14px;
+    font-size: 0.82rem;
+  }
+
+  /* FASCIA NUMERI (solo home) */
+  .mobile-stats {
+    display: block;
+    padding-top: 4px;
+  }
+
+  .mobile-stats .stats-grid {
+    margin: 0;
   }
 
   /* CHI SONO */
@@ -2463,57 +2565,90 @@ a.contact-item:hover {
     font-size: 1.15rem;
   }
 
-  /*
-    SERVIZI / SKILLS: niente colonne forzate. Le griglie usano già
-    auto-fit con una larghezza minima per card (vedi regole di base),
-    quindi su schermo stretto vanno naturalmente a una sola colonna,
-    piena larghezza, testo comodo da leggere — niente card striminzite.
-  */
-  .services-grid,
-  .skills-grid {
-    gap: 16px;
-    margin-top: 32px;
+  /* SERVIZI: griglia a 2 colonne, più visiva e compatta invece di
+     una lunga lista di card a piena larghezza (nessun prezzo mostrato,
+     come richiesto). */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 28px;
   }
 
-  .service-card,
-  .skill-card {
-    padding: 26px 24px;
+  .service-card {
+    padding: 18px 14px;
+    text-align: center;
   }
 
-  .service-card h3,
-  .skill-card h3 {
-    font-size: 1.05rem;
+  .service-card i {
+    font-size: 1.55rem;
+    margin-bottom: 10px;
   }
 
-  .service-card p,
-  .skill-card p {
-    font-size: 0.88rem;
+  .service-card h3 {
+    font-size: 0.86rem;
+    margin-bottom: 5px;
   }
 
-  /* PROGETTI */
+  /* L'ultima card (numero dispari) resta centrata su due colonne */
+  .service-card:last-child {
+    grid-column: span 2;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .service-card p {
+    font-size: 0.72rem;
+    line-height: 1.4;
+  }
+
+  /* PROGETTI: card orizzontale compatta — miniatura a sinistra,
+     contenuto a destra, più professionale e "a colpo d'occhio" */
   .projects-grid {
-    gap: 20px;
-    margin-top: 32px;
+    gap: 14px;
+    margin-top: 28px;
   }
 
   .project-card {
-    border-radius: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 18px;
   }
 
   .project-image {
-    height: 200px;
+    width: 104px;
+    height: 104px;
+    flex-shrink: 0;
+    border-radius: 14px;
   }
 
   .project-content {
-    padding: 20px;
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+  }
+
+  .project-content .project-category {
+    padding: 4px 10px;
+    font-size: 0.62rem;
+    margin-bottom: 6px;
   }
 
   .project-content h3 {
-    font-size: 1.15rem;
+    font-size: 0.96rem;
+    line-height: 1.25;
+    margin-bottom: 4px;
   }
 
   .project-content p {
-    font-size: 0.85rem;
+    font-size: 0.74rem;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  .project-card-link {
+    font-size: 0.78rem;
   }
 
   /* FAQ */
@@ -2546,6 +2681,24 @@ a.contact-item:hover {
     grid-template-columns: 1fr;
   }
 
+  /* Campi form più "vivi" al tocco: bordo e bagliore ciano sul focus */
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    border-radius: 14px;
+    transition:
+      border-color var(--speed) var(--ease),
+      box-shadow var(--speed) var(--ease);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: rgba(56, 189, 248, 0.55);
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.14);
+    outline: none;
+  }
+
   /* FOOTER */
   .footer-content {
     flex-direction: column;
@@ -2564,20 +2717,130 @@ a.contact-item:hover {
     text-align: center;
   }
 
-  /* PULSANTI FLOTTANTI */
+  /* PULSANTE WHATSAPP FLOTTANTE: sostituito dalla barra di contatto
+     rapido fissa in fondo (mobile-cta-bar), quindi qui va nascosto */
   .whatsapp-float {
-    width: 52px;
-    height: 52px;
-    right: 16px;
-    bottom: 80px;
-    font-size: 1.3rem;
+    display: none;
   }
 
   .back-to-top {
-    width: 46px;
-    height: 46px;
-    right: 16px;
-    bottom: 20px;
+    width: 44px;
+    height: 44px;
+    right: 14px;
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px) + 14px);
+  }
+
+  /* --------------------------------------------------------------
+     BARRA DI CONTATTO RAPIDO — fissa in fondo, solo smartphone
+     -------------------------------------------------------------- */
+  .mobile-cta-bar {
+    display: flex;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1100;
+
+    background: rgba(5, 7, 13, 0.98);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-top: 1px solid rgba(56, 189, 248, 0.28);
+    box-shadow:
+      0 -10px 34px rgba(0, 0, 0, 0.5),
+      0 -1px 14px rgba(56, 189, 248, 0.18);
+
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .mobile-cta-btn {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 15px 10px;
+
+    font-weight: 700;
+    font-size: 0.85rem;
+
+    position: relative;
+    overflow: hidden;
+
+    transition: filter var(--speed) var(--ease), transform 0.15s var(--ease);
+  }
+
+  .mobile-cta-btn i {
+    font-size: 1.05rem;
+  }
+
+  .mobile-cta-call {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.03);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .mobile-cta-whatsapp {
+    color: #fff;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+  }
+
+  .mobile-cta-btn:active {
+    filter: brightness(0.9);
+    transform: scale(0.97);
+  }
+
+  /* --------------------------------------------------------------
+     TOCCHI FINALI: bottoni con riflesso animato, card che si
+     "accendono" al tocco invece di un semplice hover (che su
+     smartphone non esiste davvero)
+     -------------------------------------------------------------- */
+  .btn-primary {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.35) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-20deg);
+    animation: btnShine 3.2s ease-in-out infinite;
+  }
+
+  @keyframes btnShine {
+    0% { left: -60%; }
+    35%, 100% { left: 130%; }
+  }
+
+  .project-card,
+  .service-card,
+  .stat-card,
+  .info-card,
+  .profile-card {
+    transition:
+      border-color var(--speed) var(--ease),
+      box-shadow var(--speed) var(--ease),
+      transform 0.15s var(--ease);
+  }
+
+  .project-card:active,
+  .service-card:active {
+    transform: scale(0.98);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 8px 26px rgba(56, 189, 248, 0.18);
   }
 }
 
@@ -2589,7 +2852,7 @@ a.contact-item:hover {
   }
 
   .hero-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   .hero-text {
@@ -3017,148 +3280,5 @@ iframe {
   .project-hero-grid {
     grid-template-columns: 1fr;
     gap: 36px;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   17. MIGLIORIE SOLO MOBILE — barra di contatto rapido + effetti "wow"
-   Tutto qui dentro vive in media query max-width, quindi desktop e tablet
-   restano esattamente come prima. Nessun dato nuovo: stessi numero/email
-   già usati nel resto del sito.
-   -------------------------------------------------------------------------- */
-
-/* Nascosta di default (desktop/tablet): esiste nel markup di ogni pagina
-   ma diventa visibile e fissa solo sotto i 640px, vedi sotto. */
-.mobile-cta-bar {
-  display: none;
-}
-
-@keyframes mobilePulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45); }
-  50%      { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
-}
-
-@keyframes mobileLogoGlow {
-  0%, 100% { text-shadow: 0 0 12px rgba(56, 189, 248, 0.35); }
-  50%      { text-shadow: 0 0 22px rgba(56, 189, 248, 0.75); }
-}
-
-@media (max-width: 640px) {
-
-  /* Spazio in fondo alla pagina così la barra fissa non copre mai
-     l'ultimo contenuto (footer legale incluso) */
-  body {
-    padding-bottom: calc(78px + env(safe-area-inset-bottom, 0px));
-  }
-
-  /* Sostituita dalla barra di contatto rapido in basso: niente doppio CTA */
-  .whatsapp-float {
-    display: none;
-  }
-
-  /* Il pulsante "torna su" si sposta sopra la nuova barra */
-  .back-to-top {
-    right: 16px;
-    bottom: calc(78px + 16px + env(safe-area-inset-bottom, 0px));
-    width: 44px;
-    height: 44px;
-  }
-
-  /* ---- Barra di contatto rapido fissa (Chiama + WhatsApp) ---- */
-  .mobile-cta-bar {
-    display: flex;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 950;
-
-    padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
-    gap: 10px;
-
-    background: rgba(5, 7, 13, 0.88);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-top: 1px solid rgba(56, 189, 248, 0.18);
-    box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.45);
-  }
-
-  .mobile-cta-btn {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-
-    min-height: 50px;
-    padding: 0 14px;
-    border-radius: var(--radius-full);
-
-    font-size: 0.92rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    color: #fff;
-
-    transition: transform 0.15s var(--ease), filter 0.15s var(--ease);
-  }
-
-  .mobile-cta-btn:active {
-    transform: scale(0.96);
-    filter: brightness(0.94);
-  }
-
-  .mobile-cta-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-  }
-
-  .mobile-cta-call {
-    background: linear-gradient(135deg, #fb923c, #ea580c);
-    box-shadow: 0 8px 22px rgba(234, 88, 12, 0.35);
-  }
-
-  .mobile-cta-whatsapp {
-    background: linear-gradient(135deg, #34e07a, #16a34a);
-    box-shadow: 0 8px 22px rgba(22, 163, 74, 0.35);
-  }
-
-  .mobile-cta-whatsapp .mobile-cta-icon {
-    animation: mobilePulseGlow 2.4s ease-in-out infinite;
-    border-radius: 50%;
-  }
-
-  /* ---- Navbar: logo con leggero bagliore pulsante ---- */
-  .logo span {
-    color: var(--primary);
-    animation: mobileLogoGlow 3.2s ease-in-out infinite;
-  }
-
-  .navbar.scrolled .nav-container {
-    box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.12), var(--shadow-md);
-  }
-
-  /* ---- Tap feedback più "vivo" su card e bottoni touch ---- */
-  .project-card:active,
-  .service-card:active,
-  .skill-card:active,
-  .info-card:active,
-  .stat-card:active,
-  .faq-item summary:active {
-    transform: scale(0.98);
-    transition: transform 0.12s var(--ease);
-  }
-
-  .btn:active {
-    transform: scale(0.96);
-  }
-
-  .stat-card {
-    transition: transform 0.12s var(--ease), border-color var(--speed) var(--ease);
-  }
-
-  .stat-card:active {
-    border-color: rgba(56, 189, 248, 0.35);
   }
 }
